@@ -24,3 +24,24 @@
         }
     }
 }
+
+.input-error {
+    &-enter {
+        opacity: 0;
+        transform: translateY(-10px);
+        &-active {
+            transition: all 0.3s ease-out;
+        }
+        &-from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+    }
+    &-leave {
+        &-active {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.3s ease-out;
+        }
+    }
+}

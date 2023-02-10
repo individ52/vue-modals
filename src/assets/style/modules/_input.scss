@@ -1,0 +1,37 @@
+//
+.input {
+    &-container {
+        width: 100%;
+        margin-top: 30px;
+        padding-bottom: 25px;
+        position: relative;
+        overflow: hidden;
+    }
+    &-label {
+        font: $nwy-font-label;
+        display: block;
+        padding-bottom: 6px;
+    }
+    &-input {
+        position: relative;
+        width: 90%;
+        display: block;
+        font: $nwy-font-input;
+        color: $color-gray;
+        padding: 14px 20px;
+        border: 1px solid $color-gray;
+        border-radius: 2px;
+        &-invalid {
+            border: 1px solid red;
+        }
+        z-index: 20;
+    }
+    &-error {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        font: $nwy-font-label;
+        color: red;
+        z-index: 10;
+    }
+}
