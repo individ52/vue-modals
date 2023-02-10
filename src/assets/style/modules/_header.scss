@@ -1,4 +1,32 @@
 .header {
     height: 80px;
     background-color: $color-primary;
+    &__wrap {
+        height: 100%;
+    }
+    &__logo {
+        a {
+            display: block;
+            padding: auto 0;
+            max-height: 60px;
+        }
+    }
+    &__body {
+        &__nav {
+            &__item {
+                color: white;
+                font: $nwy-font-p;
+                margin-right: 30px;
+                transition: 0.5s all;
+                &--active {
+                    color: $color-seconary;
+                    transition: 0.5s all;
+                }
+                &:hover {
+                    color: $color-seconary;
+                    transition: 0.5s all;
+                }
+            }
+        }
+    }
 }

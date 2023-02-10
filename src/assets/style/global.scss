@@ -1,5 +1,19 @@
+@font-face {
+    font-family: "SegoeUI_online_security";
+    src: url("chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui.woff");
+}
+
+@font-face {
+    font-family: "SegoeUI_bold_online_security";
+    src: url("chrome-extension://llbcnfanfmjhpedaedhbcnpgeepdnnok/segoe-ui-bold.woff");
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: "Segoe UI";
 }
 
+a {
+    text-decoration: none;
+}
