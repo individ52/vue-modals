@@ -21,7 +21,7 @@ export default defineComponent({
                     </nav>
                 </div>
             </div>
-        </div>
+        </div>  
     </header>
 </template>
 

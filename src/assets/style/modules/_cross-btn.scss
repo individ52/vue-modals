@@ -1,0 +1,41 @@
+$softorange: #1e272d;
+$tomatored: $color-libs-primary;
+$coef: 2;
+.close {
+    &-container {
+        position: relative;
+        width: 50px / $coef;
+        height: 50px / $coef;
+        cursor: pointer;
+        &:hover .leftright {
+            transform: rotate(-45deg);
+            background-color: $tomatored;
+        }
+        &:hover .rightleft {
+            transform: rotate(45deg);
+            background-color: $tomatored;
+        }
+    }
+}
+
+.leftright {
+    height: 4px / $coef;
+    width: 50px / $coef;
+    position: absolute;
+    margin-top: 24px / $coef;
+    background-color: $softorange;
+    border-radius: 2px;
+    transform: rotate(45deg);
+    transition: all 0.3s ease-in;
+}
+
+.rightleft {
+    height: 4px / $coef;
+    width: 50px / $coef;
+    position: absolute;
+    margin-top: 24px / $coef;
+    background-color: $softorange;
+    border-radius: 2px;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease-in;
+}

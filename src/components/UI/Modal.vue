@@ -1,0 +1,40 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+import CrossBtn from "./CrossBtn.vue";
+export default defineComponent({
+    components: { CrossBtn },
+    props: {
+        show: Boolean,
+    },
+});
+</script>
+
+<template>
+    <transition name="modal">
+        <div class="modal__mask" v-if="show">
+            <div class="modal__wrapper" @click="$emit('close')">
+                <div class="modal__container" @click.stop>
+                    <div class="modal__cross" @click="$emit('close')">
+                        <cross-btn />
+                    </div>
+                    <div class="modal__header">
+                        <slot name="header"> default header </slot>
+                    </div>
+
+                    <div class="modal__body">
+                        <slot name="body"> default body </slot>
+                    </div>
+
+                    <div class="modal__footer">
+                        <slot name="footer">
+                            default footer
+                            <button class="modal__default-button" @click="$emit('close')">OK</button>
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </transition>
+</template>
+
+<style scoped></style>
