@@ -29,7 +29,7 @@ export default defineComponent({
                     </div>
                 </div>
             </div>
-            <transition>
+            <transition name="sub-menu">
                 <div class="header__sub-menu" v-if="isShowMenu">
                     <nav class="header__sub-menu__content">
                         <router-link to="/" class="header__sub-menu__item" active-class="header__sub-menu__item--active">Modal with Native css</router-link>

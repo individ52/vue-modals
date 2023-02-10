@@ -1,4 +1,13 @@
 .page-buttons {
-    margin: 40px auto;
-    width: 50%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    &__wrap {
+        width: 100%;
+        .btn,
+        .btn2 {
+            @media screen and (max-width: 992px) {
+                width: 30%;
+            }
+        }
+    }
 }
