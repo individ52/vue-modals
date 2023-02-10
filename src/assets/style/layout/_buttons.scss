@@ -1,0 +1,33 @@
+.btn {
+    padding: 15px 26px;
+    border-radius: 0;
+    border: 0;
+    cursor: pointer;
+    transition: 1s all;
+    &:hover {
+        transition: 1s all;
+    }
+    &--primary {
+        background-color: $color-seconary;
+        font: $nwy-font-p;
+        line-height: 15px;
+        &:hover {
+            background-color: $color-seconary-alt;
+        }
+    }
+}
+
+.btn2 {
+    padding: 11px 22px;
+    background: $color-libs-primary;
+    border: 1px solid $color-libs-primary;
+    border-radius: 8px;
+    font: $libs-font-p;
+    color: #fff;
+    cursor: pointer;
+    transition: 1s all;
+    &:hover {
+        background-color: $color-libs-primary-alt;
+        transition: 1s all;
+    }
+}
