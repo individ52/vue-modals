@@ -4,7 +4,7 @@ import MenuBtn from "./UI/Icons/MenuBtn.vue";
 export default defineComponent({
     components: { MenuBtn },
     data: () => ({
-        isShowMenu: true,
+        isShowMenu: false,
     }),
     setup: () => {},
 });

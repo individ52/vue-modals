@@ -3,16 +3,37 @@ import { defineComponent } from "vue";
 import MainInput from "../UI/Input/MainInput.vue";
 import Modal from "../UI/Modal.vue";
 
-interface AdsForm {}
+interface TestForm {
+    valueA: string;
+    valueB: string;
+}
 
 export default defineComponent({
     props: {
         show: Boolean,
     },
     data: () => ({
-        invalid: true,
+        testFormData: {
+            valueA: "test a",
+            valueB: "",
+        } as TestForm,
+        errors: {} as TestForm,
     }),
-    setup: () => {},
+    methods: {
+        submitForm(e: any) {
+            e.preventDefault();
+            if (this.checkForm()) {
+                console.log("correct", this.testFormData);
+            }
+        },
+        checkForm() {
+            const errors = {} as TestForm;
+            if (!this.testFormData.valueA) errors["valueA"] = "Väärtus A on kohustuslik.";
+            if (!this.testFormData.valueB) errors["valueB"] = "Väärtus B on kohustuslik.";
+            this.errors = errors;
+            return !Object.keys(errors).length;
+        },
+    },
     components: { Modal, MainInput },
 });
 </script>
@@ -21,13 +42,13 @@ export default defineComponent({
     <Modal :show="show" @close="$emit('close')">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
-            <form>
-                <main-input :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :invalid="invalid" />
-                <main-input :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :invalid="invalid" />
+            <form @submit="submitForm" id="test-form">
+                <main-input v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
+                <main-input v-model.trim="testFormData.valueB" :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :error="errors['valueB']" />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button class="btn btn--primary" @click="invalid = !invalid">OK</button>
+            <button type="submit" form="test-form" class="btn btn--primary">OK</button>
         </template>
     </Modal>
 </template>

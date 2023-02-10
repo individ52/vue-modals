@@ -6,6 +6,13 @@ export default defineComponent({
         label: String,
         placeholder: String,
         invalid: Boolean,
+        error: String || null || undefined,
+        modelValue: String,
+    },
+    methods: {
+        updateInput(e: any) {
+            this.$emit("update:modelValue", e.target.value);
+        },
     },
     setup: () => {},
 });
@@ -14,9 +21,9 @@ export default defineComponent({
 <template>
     <div class="input-container">
         <label class="input-label" for="">{{ label }}</label>
-        <input :class="'input-input ' + (invalid ? 'input-input-invalid' : '')" type="text" :placeholder="placeholder" />
+        <input :class="'input-input ' + (invalid ? 'input-input-invalid' : '')" type="text" :placeholder="placeholder" :value="modelValue" @input="updateInput" />
         <transition name="input-error">
-            <label v-if="invalid" class="input-error" for="">Väli on täitmata</label>
+            <label v-if="error" class="input-error" for="">{{ error }}</label>
         </transition>
     </div>
 </template>
