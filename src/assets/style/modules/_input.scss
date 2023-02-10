@@ -13,11 +13,12 @@
         padding-bottom: 6px;
     }
     &-input {
+        box-sizing: border-box;
         position: relative;
-        width: 90%;
+        width: 100%;
         display: block;
         font: $nwy-font-input;
-        color: $color-gray;
+        color: #000;
         padding: 14px 20px;
         border: 1px solid $color-gray;
         border-radius: 2px;

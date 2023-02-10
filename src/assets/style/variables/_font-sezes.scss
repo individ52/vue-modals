@@ -4,5 +4,7 @@ $nwy-font-label-size: calc(16px + 0 * ((100vw - 768px) / 1152));
 $nwy-font-label: $nwy-font-label-size/normal "InterstateLight", sans-serif;
 $nwy-font-input-size: calc(16px + 2 * ((100vw - 768px) / 1152));
 $nwy-font-input: 400 $nwy-font-input-size / normal "Interstate", sans-serif;
+$nwy-font-nav-size: 18px;
+$nwy-font-nav: 400 $nwy-font-nav-size "Interstate", sans-serif;
 
 $libs-font-p: 700 15px "InterstateLight", sans-serif;
