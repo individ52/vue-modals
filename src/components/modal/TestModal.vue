@@ -1,9 +1,11 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, Ref, ref } from "vue";
 import MainInput from "../UI/Input/MainInput.vue";
-import Modal from "../UI/Modal.vue";
-
-interface TestForm {
+import Modal from "../UI/Modal/Modal.vue";
+import useFetch from "@/hooks/useFetch";
+import TestAPI from "@/services/TestAPI";
+import ServerResponse, { ResponseStatus } from "../UI/ServerResponse/ServerResponse.vue";
+export interface TestForm {
     valueA: string;
     valueB: string;
 }
@@ -13,17 +15,17 @@ export default defineComponent({
         show: Boolean,
     },
     data: () => ({
-        testFormData: {
-            valueA: "test a",
-            valueB: "",
-        } as TestForm,
         errors: {} as TestForm,
+        ResponseStatus,
+        message: "",
+        status: ResponseStatus.FAIL,
     }),
     methods: {
-        submitForm(e: any) {
+        async submitForm(e: any) {
             e.preventDefault();
             if (this.checkForm()) {
                 console.log("correct", this.testFormData);
+                await this.makeRequest();
             }
         },
         checkForm() {
@@ -33,8 +35,36 @@ export default defineComponent({
             this.errors = errors;
             return !Object.keys(errors).length;
         },
+        switchResponseStatus() {
+            if (this.message == "111") {
+                this.message = "222";
+                this.status = ResponseStatus.FAIL;
+            } else if (this.message == "222") {
+                this.message = "333";
+                this.status = ResponseStatus.SUCCESS;
+            } else {
+                this.message = "111";
+                this.status = ResponseStatus.LOADING;
+            }
+        },
     },
-    components: { Modal, MainInput },
+    components: { MainInput, Modal, ServerResponse },
+    setup: () => {
+        const testFormData: Ref<TestForm> = ref<TestForm>({
+            valueA: "test a",
+            valueB: "",
+        });
+        const { message, makeRequest, status } = useFetch(async function () {
+            const addedTest = await TestAPI.postTest(testFormData.value);
+        });
+
+        return {
+            testFormData,
+            // message,
+            makeRequest,
+            // status,
+        };
+    },
 });
 </script>
 
@@ -42,13 +72,15 @@ export default defineComponent({
     <Modal :show="show" @close="$emit('close')">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
+            <button @click="switchResponseStatus">test response</button>
+            <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" /></div>
             <form @submit="submitForm" id="test-form">
                 <main-input v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
                 <main-input v-model.trim="testFormData.valueB" :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :error="errors['valueB']" />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="test-form" class="btn btn--primary">OK</button>
+            <button type="submit" form="test-form" class="btn btn--primary" :disabled="status == ResponseStatus.LOADING">OK</button>
         </template>
     </Modal>
 </template>

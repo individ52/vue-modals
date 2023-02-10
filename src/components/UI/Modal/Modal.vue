@@ -1,6 +1,6 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import CrossBtn from "./CrossBtn.vue";
+import CrossBtn from "../Icons/CrossBtn.vue";
 export default defineComponent({
     components: { CrossBtn },
     props: {
