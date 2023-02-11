@@ -67,3 +67,26 @@
         }
     }
 }
+
+.response__message {
+    &-enter {
+        opacity: 0;
+        transform: translateY(20px);
+        &-active {
+            transition: all 0.5s ease-out;
+            transition-delay: 800ms;
+        }
+        &-from {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease-out;
+        }
+    }
+    &-leave {
+        &-active {
+            opacity: 0;
+            transform: translateY(-20px);
+            transition: all 0.5s ease-out;
+        }
+    }
+}

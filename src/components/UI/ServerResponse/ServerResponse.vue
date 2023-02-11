@@ -48,9 +48,11 @@ export default defineComponent({
                     </div>
                 </div>
             </div>
-            <div class="response__message" v-if="message && !isLoading">
-                {{ message }}
-            </div>
+            <transition name="response__message">
+                <div class="response__message" v-if="message && !isLoading">
+                    {{ message }}
+                </div>
+            </transition>
         </div>
     </transition>
 </template>

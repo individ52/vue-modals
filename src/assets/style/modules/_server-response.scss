@@ -158,10 +158,6 @@ $check-color: $brand-success;
     &__message {
         margin-left: 2.5em;
         font: $nwy-font-p;
-        opacity: 1;
-        transform: translateY(0);
-        animation-name: showResponseMessage;
-        animation-duration: 1s;
     }
 }
 
