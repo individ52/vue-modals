@@ -1,23 +1,35 @@
-import { ResponseStatus } from "@/components/UI/ServerResponse/ServerResponse.vue";
-import { Ref, ref } from "vue";
+import { ResponseStatus } from "../components/UI/ServerResponse/ServerResponse.vue";
+import { reactive, toRefs, ref } from "vue";
+
+interface State {
+    message: string;
+    status: ResponseStatus;
+}
 
 export default function useFetch(cb: () => void) {
-    var message: Ref<string | undefined> = ref();
-    var status: Ref<ResponseStatus> = ref(ResponseStatus.NONE);
-
+    var state = reactive<State>({
+        message: "",
+        status: ResponseStatus.NONE,
+    });
+    var timeout = ref();
     const makeRequest = async () => {
-        status.value = ResponseStatus.LOADING;
+        if (timeout.value) clearTimeout(timeout.value);
+        state.status = ResponseStatus.LOADING;
         try {
             const response: any = await cb();
-            message.value = response?.message;
-            status.value = ResponseStatus.SUCCESS;
+            console.log(response);
+            state.message = response?.message;
+            state.status = ResponseStatus.SUCCESS;
         } catch (e: any) {
-            message.value = e.message;
-            status.value = ResponseStatus.FAIL;
+            state.message = e.message;
+            state.status = ResponseStatus.FAIL;
         } finally {
-            status.value = ResponseStatus.NONE;
+            timeout.value = setTimeout(() => {
+                state.message = "";
+                state.status = ResponseStatus.NONE;
+            }, 5000);
         }
     };
 
-    return { message, status, makeRequest };
+    return { ...toRefs(state), makeRequest };
 }

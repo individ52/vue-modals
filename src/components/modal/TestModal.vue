@@ -17,8 +17,8 @@ export default defineComponent({
     data: () => ({
         errors: {} as TestForm,
         ResponseStatus,
-        message: "",
-        status: ResponseStatus.FAIL,
+        // message: "",
+        // status: ResponseStatus.NONE,
     }),
     methods: {
         async submitForm(e: any) {
@@ -55,14 +55,14 @@ export default defineComponent({
             valueB: "",
         });
         const { message, makeRequest, status } = useFetch(async function () {
-            const addedTest = await TestAPI.postTest(testFormData.value);
+            return await TestAPI.postTest(testFormData.value);
         });
 
         return {
             testFormData,
-            // message,
+            message,
             makeRequest,
-            // status,
+            status,
         };
     },
 });
@@ -72,7 +72,6 @@ export default defineComponent({
     <Modal :show="show" @close="$emit('close')">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
-            <button @click="switchResponseStatus">test response</button>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" /></div>
             <form @submit="submitForm" id="test-form">
                 <main-input v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
