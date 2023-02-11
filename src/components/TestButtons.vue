@@ -1,8 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import TestModal from "./modal/TestModal.vue";
+import TestModalStep1 from "./TestModal/TestModalStep1.vue";
+import TestModalSteps from "./TestModal/TestModalSteps.vue";
 export default defineComponent({
-    components: { TestModal },
     data: () => ({
         show: false,
     }),
@@ -14,6 +14,7 @@ export default defineComponent({
             this.show = false;
         },
     },
+    components: { TestModalSteps },
 });
 </script>
 
@@ -24,7 +25,7 @@ export default defineComponent({
             <button class="btn2 btn2--primary">Modal 2</button>
         </div>
     </div>
-    <test-modal :show="show" @close="hideModal" />
+    <test-modal-steps :show="show" @close="hideModal" />
 </template>
 
 <style scoped></style>

@@ -1,0 +1,32 @@
+.circle-loader {
+    margin-bottom: $loader-size/2;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    border-left-color: $color-primary;
+    animation: loader-spin 1.2s infinite linear;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    border-radius: 50%;
+    width: $loader-size;
+    height: $loader-size;
+}
+
+.load-fail {
+    border-color: red !important;
+}
+
+.load-complete {
+    -webkit-animation: none;
+    animation: none;
+    border-color: $check-color;
+    transition: border 500ms ease-out;
+}
+
+@keyframes loader-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

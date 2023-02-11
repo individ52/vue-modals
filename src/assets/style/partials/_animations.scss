@@ -1,56 +1,29 @@
-.modal {
-    &-enter {
-        opacity: 0;
-        &-active {
-            transition: all 0.3s ease-out;
-        }
-        &-from {
-            opacity: 0;
-            .modal-container {
-                -webkit-transform: scale(1.1);
-                opacity: 0;
-                transform: scale(1.1);
-            }
-        }
-    }
-    &-leave {
-        &-active {
-            opacity: 0;
-            transition: all 0.3s;
-            .modal-container {
-                -webkit-transform: scale(1.1);
-                transform: scale(1.1);
-            }
-        }
-    }
-}
-
 .height-increase {
     &-enter {
         opacity: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
+        // height: 0;
+        // margin: 0;
+        // padding: 0;
         transform: translateY(-20px);
         &-active {
             transition: all 0.3s;
         }
         &-from {
             opacity: 0;
-            height: 0;
-            margin: 0;
-            padding: 0;
-            transform: translateY(-20px);
+            // height: 0;
+            // margin: 0;
+            // padding: 0;
+            transform: translateY(30px);
         }
     }
     &-leave {
         &-active {
             opacity: 0;
-            height: 0;
+            // height: 0;
             transition: all 0.3s;
-            margin: 0;
-            padding: 0;
-            transform: translateY(-20px);
+            // margin: 0;
+            // padding: 0;
+            transform: translateY(-30px);
         }
     }
 }

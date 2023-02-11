@@ -19,7 +19,7 @@
         box-shadow: inset 0 0 0 0 $color-primary;
         color: $color-primary;
         margin: 0 -0.25rem;
-        padding: 0 2rem;
+        padding: 15px 2rem;
         transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         &:hover {
             box-shadow: inset 120px 0 0 0 $color-primary;

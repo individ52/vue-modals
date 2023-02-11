@@ -1,0 +1,70 @@
+// Define vars we'll be using
+$brand-success: #5cb85c;
+$loader-size: 2em;
+$check-height: $loader-size/2;
+$check-width: $check-height/2;
+$check-left: ($loader-size/6 + $loader-size/12);
+$check-thickness: 2px;
+$check-color: $brand-success;
+
+@import "./response-checkmark";
+@import "./response-cross";
+@import "./response-spinner";
+
+.response {
+    width: 100%;
+    height: auto;
+    &__wrap {
+        width: 100%;
+        border-radius: 8px;
+        padding: 15px 18px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0px;
+        box-sizing: border-box;
+        text-align: left;
+        p {
+            display: inline-block;
+        }
+        svg {
+            margin-right: 5px;
+        }
+    }
+    &--error {
+        background: $color-light-red;
+        color: $color-black-red;
+    }
+
+    &--success {
+        background: $color-light-green;
+        color: $color-black-green;
+    }
+
+    // &__mark {
+    //     position: absolute;
+    //     right: 50%;
+    //     transform: translateX(50%);
+    //     &--result {
+    //         transform: translateX(0);
+    //         left: 0;
+    //         transition: 1s all;
+    //     }
+    // }
+    // &__message {
+    //     margin-left: 2.5em;
+    //     font: $nwy-font-p;
+    // }
+}
+
+@keyframes showResponseMessage {
+    0% {
+        opacity: 0;
+        transform: translateX(20%);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

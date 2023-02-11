@@ -40,8 +40,10 @@ export default defineComponent({
 
 <template>
     <div class="response flex flex-column">
-        <transition name="height-increase">
-            <div class="circle-loader" v-if="isLoading"></div>
+        <transition name="height-increase" mode="out-in">
+            <div v-if="isLoading" class="flex justify-content-center align-items-center">
+                <div class="circle-loader"></div>
+            </div>
             <div class="response__wrap response--error flex align-items-center justify-content-between" v-else-if="isFail">
                 <div class="flex align-items-center">
                     <error-icon />

@@ -25,6 +25,9 @@ export default defineComponent({
             e.preventDefault();
             if (this.checkForm()) {
                 await this.makeRequest();
+                if (this.status == ResponseStatus.SUCCESS) {
+                    this.$emit("next");
+                }
             }
         },
         checkForm() {

@@ -5,12 +5,13 @@ export default defineComponent({
     components: { CrossBtn },
     props: {
         show: Boolean,
+        flip: Boolean || undefined || null,
     },
 });
 </script>
 
 <template>
-    <transition name="modal">
+    <transition :name="flip ? 'modal-flip' : 'modal'">
         <div class="modal__mask" v-if="show">
             <div class="modal__wrapper" @click="$emit('close')">
                 <div class="modal__container" @click.stop>
