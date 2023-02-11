@@ -3,11 +3,11 @@
     border-radius: 0;
     border: 0;
     cursor: pointer;
-    transition: 1s all;
+    transition: 0.5s all;
     font: $nwy-font-p;
     line-height: 15px;
     &:hover {
-        transition: 1s all;
+        transition: 0.5s all;
     }
     &--primary {
         background-color: $color-seconary;
@@ -16,9 +16,47 @@
         }
     }
     &--gray {
-        background-color: $color-gray;
+        box-shadow: inset 0 0 0 0 $color-primary;
+        color: $color-primary;
+        margin: 0 -0.25rem;
+        padding: 0 2rem;
+        transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         &:hover {
-            background-color: $color-gray-alt;
+            box-shadow: inset 120px 0 0 0 $color-primary;
+            color: white;
+        }
+    }
+    &--arrow {
+        transition: all 0.2s linear 0s;
+        position: relative;
+        display: inline-block;
+        text-transform: capitalize;
+        overflow: hidden;
+        transition: all 0.2s linear 0s;
+
+        &:before {
+            content: "\f178";
+            font-family: FontAwesome;
+            font-size: 15px;
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            height: 100%;
+            width: 40px;
+            transition: all 0.2s linear 0s;
+        }
+
+        &:hover {
+            text-indent: -20px;
+
+            &:before {
+                opacity: 1;
+                text-indent: 0px;
+            }
         }
     }
 }

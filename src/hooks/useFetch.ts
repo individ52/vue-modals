@@ -12,6 +12,10 @@ export default function useFetch(cb: () => void) {
         status: ResponseStatus.NONE,
     });
     var timeout = ref();
+    const close = () => {
+        state.message = "";
+        state.status = ResponseStatus.NONE;
+    };
     const makeRequest = async () => {
         if (timeout.value) clearTimeout(timeout.value);
         state.status = ResponseStatus.LOADING;
@@ -23,13 +27,8 @@ export default function useFetch(cb: () => void) {
         } catch (e: any) {
             state.message = e.message;
             state.status = ResponseStatus.FAIL;
-        } finally {
-            timeout.value = setTimeout(() => {
-                state.message = "";
-                state.status = ResponseStatus.NONE;
-            }, 5000);
         }
     };
 
-    return { ...toRefs(state), makeRequest };
+    return { ...toRefs(state), makeRequest, close };
 }

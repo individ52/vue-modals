@@ -1,5 +1,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
+import CrossBtn from "../Icons/CrossBtn.vue";
+import ErrorIcon from "../Icons/ErrorIcon.vue";
+import SuccessIcon from "../Icons/SuccessIcon.vue";
 
 export enum ResponseStatus {
     SUCCESS = "SUCCESS",
@@ -9,6 +12,7 @@ export enum ResponseStatus {
 }
 
 export default defineComponent({
+    components: { ErrorIcon, SuccessIcon, CrossBtn },
     data: () => ({
         ResponseStatus,
     }),
@@ -35,26 +39,18 @@ export default defineComponent({
 </script>
 
 <template>
-    <transition name="input-error">
-        <div class="response" v-if="!isNone">
-            <div :class="['response__mark', !isLoading && message ? 'response__mark--result' : ''].join(' ')">
-                <div :class="['circle-loader', !isLoading ? 'load-complete' : '', isFail ? 'load-fail' : ''].join(' ')">
-                    <div class="checkmark draw" v-if="isSuccess"></div>
-                    <div class="cross flex justify-content-center align-items-center">
-                        <div class="cross__wrap" v-if="isFail">
-                            <div class="line left"></div>
-                            <div class="line right"></div>
-                        </div>
-                    </div>
+    <div class="response flex flex-column">
+        <transition name="height-increase">
+            <div class="circle-loader" v-if="isLoading"></div>
+            <div class="response__wrap response--error flex align-items-center justify-content-between" v-else-if="isFail">
+                <div class="flex align-items-center">
+                    <error-icon />
+                    <p>{{ message }}</p>
                 </div>
+                <cross-btn @click="$emit('close')" />
             </div>
-            <transition name="response__message">
-                <div class="response__message" v-if="message && !isLoading">
-                    {{ message }}
-                </div>
-            </transition>
-        </div>
-    </transition>
+        </transition>
+    </div>
 </template>
 
 <style scoped></style>

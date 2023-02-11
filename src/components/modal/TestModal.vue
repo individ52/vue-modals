@@ -24,7 +24,6 @@ export default defineComponent({
         async submitForm(e: any) {
             e.preventDefault();
             if (this.checkForm()) {
-                console.log("correct", this.testFormData);
                 await this.makeRequest();
             }
         },
@@ -54,7 +53,7 @@ export default defineComponent({
             valueA: "test a",
             valueB: "",
         });
-        const { message, makeRequest, status } = useFetch(async function () {
+        const { message, makeRequest, status, close } = useFetch(async function () {
             return await TestAPI.postTest(testFormData.value);
         });
 
@@ -63,6 +62,7 @@ export default defineComponent({
             message,
             makeRequest,
             status,
+            close,
         };
     },
 });
@@ -72,14 +72,14 @@ export default defineComponent({
     <Modal :show="show" @close="$emit('close')">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
-            <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" /></div>
+            <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="test-form">
                 <main-input v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
                 <main-input v-model.trim="testFormData.valueB" :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :error="errors['valueB']" />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="test-form" class="btn btn--primary" :disabled="status == ResponseStatus.LOADING">OK</button>
+            <button type="submit" form="test-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
         </template>
     </Modal>
 </template>
