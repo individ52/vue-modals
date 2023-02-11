@@ -3,8 +3,8 @@ import { $http } from "@/config/http";
 
 export default class TestAPI {
     static async postTest(test: TestForm) {
-        await sleep(5000);
-        var response = await $http?.post("/testsф", test);
+        await sleep(500);
+        var response = await $http?.post("/tests", test);
         return { ...response, message: "Test väärtused on lisatud!" };
     }
 }
