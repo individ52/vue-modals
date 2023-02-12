@@ -8,12 +8,14 @@ import ServerResponse, { ResponseStatus } from "../UI/ServerResponse/ServerRespo
 import NextInput from "../UI/Input/NextInput.vue";
 import NextSelect from "../UI/Input/NextSelect.vue";
 import NextTextarea from "../UI/Input/NextTextarea.vue";
+import NextUploadFile from "../UI/Input/NextUploadFile.vue";
 export interface NextForm {
     firstname: string;
     lastname: string;
     gender: string;
     email: string;
     description: string;
+    files: any;
 }
 
 export default defineComponent({
@@ -59,14 +61,16 @@ export default defineComponent({
             }
         },
     },
-    components: { MainInput, Modal, ServerResponse, NextInput, NextSelect, NextTextarea },
+    components: { MainInput, Modal, ServerResponse, NextInput, NextSelect, NextTextarea, NextUploadFile },
     setup: () => {
+        const car = "https://i2-prod.cambridge-news.co.uk/incoming/article15823587.ece/ALTERNATES/s615b/0_BCH-road-policingJPG.jpg";
         const nextFormData: Ref<NextForm> = ref<NextForm>({
             firstname: "Leonid",
             lastname: "",
             gender: "Mees",
             email: "",
             description: "",
+            files: [],
         });
         const { message, makeRequest, status, close } = useFetch(async function () {
             // return await TestAPI.postTest(nextFormData.value);
@@ -78,6 +82,7 @@ export default defineComponent({
             makeRequest,
             status,
             close,
+            car,
         };
     },
 });
@@ -93,6 +98,7 @@ export default defineComponent({
                 <next-input :disabled="false" :error="errors['lastname']" label="Perekonnanimi" v-model="nextFormData.lastname" />
                 <next-select :disabled="false" :error="errors['gender']" label="Sugu" v-model="nextFormData.gender" :values="['Mees', 'Naine']" />
                 <next-input :disabled="false" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
+                <next-upload-file :disabled="false" :error="errors['files']" label="Files" v-model="nextFormData.files" />
                 <next-textarea :disabled="false" :error="errors['description']" label="Kirjeldus" v-model="nextFormData.description" />
             </form>
         </template>
