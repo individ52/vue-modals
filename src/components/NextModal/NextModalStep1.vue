@@ -7,10 +7,13 @@ import TestAPI from "@/services/TestAPI";
 import ServerResponse, { ResponseStatus } from "../UI/ServerResponse/ServerResponse.vue";
 import NextInput from "../UI/Input/NextInput.vue";
 import NextSelect from "../UI/Input/NextSelect.vue";
+import NextTextarea from "../UI/Input/NextTextarea.vue";
 export interface NextForm {
     firstname: string;
     lastname: string;
     gender: string;
+    email: string;
+    description: string;
 }
 
 export default defineComponent({
@@ -36,7 +39,10 @@ export default defineComponent({
         checkForm() {
             const errors = {} as NextForm;
             if (!this.nextFormData.firstname) errors["firstname"] = "Eesnimi on kohustuslik.";
-            if (!this.nextFormData.lastname) errors["lastname"] = "Perekonnanimi B on kohustuslik.";
+            if (!this.nextFormData.lastname) errors["lastname"] = "Perekonnanimi on kohustuslik.";
+            if (!this.nextFormData.gender) errors["gender"] = "Sugu on kohustuslik.";
+            if (!this.nextFormData.email) errors["email"] = "E-mail on kohustuslik.";
+            if (!this.nextFormData.description) errors["description"] = "Kirjeldus on kohustuslik.";
             this.errors = errors;
             return !Object.keys(errors).length;
         },
@@ -53,12 +59,14 @@ export default defineComponent({
             }
         },
     },
-    components: { MainInput, Modal, ServerResponse, NextInput, NextSelect },
+    components: { MainInput, Modal, ServerResponse, NextInput, NextSelect, NextTextarea },
     setup: () => {
         const nextFormData: Ref<NextForm> = ref<NextForm>({
             firstname: "Leonid",
             lastname: "",
             gender: "Mees",
+            email: "",
+            description: "",
         });
         const { message, makeRequest, status, close } = useFetch(async function () {
             // return await TestAPI.postTest(nextFormData.value);
@@ -84,6 +92,8 @@ export default defineComponent({
                 <next-input :disabled="false" :error="errors['firstname']" label="Nimi" v-model="nextFormData.firstname" />
                 <next-input :disabled="false" :error="errors['lastname']" label="Perekonnanimi" v-model="nextFormData.lastname" />
                 <next-select :disabled="false" :error="errors['gender']" label="Sugu" v-model="nextFormData.gender" :values="['Mees', 'Naine']" />
+                <next-input :disabled="false" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
+                <next-textarea :disabled="false" :error="errors['description']" label="Kirjeldus" v-model="nextFormData.description" />
             </form>
         </template>
         <template v-slot:footer_button>
