@@ -10,6 +10,7 @@ import NextSelect from "../UI/Input/NextSelect.vue";
 import NextTextarea from "../UI/Input/NextTextarea.vue";
 import NextUploadFile from "../UI/Input/NextUploadFile.vue";
 import { TestForm } from "../TestModal/TestModalStep2.vue";
+import { useI18n } from "vue-i18n";
 export interface NextForm {
     firstname: string;
     lastname: string;
@@ -41,22 +42,22 @@ export default defineComponent({
         },
         checkForm() {
             const errors = {} as NextForm;
-            if (!this.nextFormData.firstname) errors["firstname"] = "Eesnimi on kohustuslik.";
-            if (!this.nextFormData.lastname) errors["lastname"] = "Perekonnanimi on kohustuslik.";
-            if (!this.nextFormData.gender) errors["gender"] = "Sugu on kohustuslik.";
-            if (!this.nextFormData.email) errors["email"] = "E-mail on kohustuslik.";
-            if (!this.nextFormData.description) errors["description"] = "Kirjeldus on kohustuslik.";
+            if (!this.nextFormData.firstname) errors["firstname"] = this.$t("modal-3.errors.firstname");
+            if (!this.nextFormData.lastname) errors["lastname"] = this.$t("modal-3.errors.lastname");
+            if (!this.nextFormData.gender) errors["gender"] = this.$t("modal-3.errors.gender");
+            if (!this.nextFormData.email) errors["email"] = this.$t("modal-3.errors.email");
+            if (!this.nextFormData.description) errors["description"] = this.$t("modal-3.errors.description");
             this.errors = errors;
             return !Object.keys(errors).length;
         },
     },
     components: { MainInput, Modal, ServerResponse, NextInput, NextSelect, NextTextarea, NextUploadFile },
     setup: () => {
-        const car = "https://i2-prod.cambridge-news.co.uk/incoming/article15823587.ece/ALTERNATES/s615b/0_BCH-road-policingJPG.jpg";
+        const { t } = useI18n({ useScope: "global" });
         const nextFormData: Ref<NextForm> = ref<NextForm>({
-            firstname: "Leonid",
+            firstname: "",
             lastname: "",
-            gender: "Mees",
+            gender: "",
             email: "",
             description: "",
             files: [],
@@ -71,7 +72,7 @@ export default defineComponent({
             makeRequest,
             status,
             close,
-            car,
+            t,
         };
     },
 });
@@ -79,20 +80,28 @@ export default defineComponent({
 
 <template>
     <Modal type="next" :show="show" @close="$emit('close')">
-        <template v-slot:header>Saada praktikaavaldus (full uus view)</template>
+        <template v-slot:header>{{ $t("modal-3.title") }}</template>
         <template v-slot:body>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="next-form">
-                <next-input :disabled="false" :error="errors['firstname']" label="Nimi" v-model="nextFormData.firstname" />
-                <next-input :disabled="false" :error="errors['lastname']" label="Perekonnanimi" v-model="nextFormData.lastname" />
-                <next-select :disabled="false" :error="errors['gender']" label="Sugu" v-model="nextFormData.gender" :values="['Mees', 'Naine']" />
+                <next-input :disabled="false" :error="errors['firstname']" :label="$t('modal-3.label.firstname')" v-model="nextFormData.firstname" />
+                <next-input :disabled="false" :error="errors['lastname']" :label="$t('modal-3.label.lastname')" v-model="nextFormData.lastname" />
+                <next-select
+                    :disabled="false"
+                    :error="errors['gender']"
+                    :label="$t('modal-3.label.gender')"
+                    v-model="nextFormData.gender"
+                    :values="[$t('modal-3.gender.male'), $t('modal-3.gender.female')]"
+                />
                 <next-input :disabled="false" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
-                <next-upload-file :disabled="false" :error="errors['files']" label="Sinu failid" v-model="nextFormData.files" />
-                <next-textarea :disabled="false" :error="errors['description']" label="Kirjeldus" v-model="nextFormData.description" />
+                <next-upload-file :disabled="false" :error="errors['files']" :label="$t('modal-3.label.files')" v-model="nextFormData.files" />
+                <next-textarea :disabled="false" :error="errors['description']" :label="$t('modal-3.label.description')" v-model="nextFormData.description" />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="next-form" class="next-btn next-btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
+            <button type="submit" form="next-form" class="next-btn next-btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING">
+                <div>{{ $t("modal-3.buttons.send") }}</div>
+            </button>
         </template>
     </Modal>
 </template>

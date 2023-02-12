@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, Ref, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import Modal from "../UI/Modals/Modal.vue";
 export interface TestForm {
     valueA: string;
@@ -14,6 +15,10 @@ export default defineComponent({
     data: () => ({
         closeTimeout: null || 0,
     }),
+    setup() {
+        const { t } = useI18n({ useScope: "global" });
+        return { t };
+    },
     watch: {
         show() {
             if (this.closeTimeout) clearTimeout(this.closeTimeout);
@@ -29,10 +34,10 @@ export default defineComponent({
 
 <template>
     <Modal type="next" :show="show" @close="$emit('close')" :flip="true">
-        <template v-slot:header>Saada praktikaavaldus</template>
+        <template v-slot:header>{{ $t("modal-2.final-block.title") }}</template>
         <template v-slot:body>
-            <h4>Suur Aitäh!</h4>
-            <p>Teie taotlus on edukalt saadetud, võtame teiega peagi ühendust.</p>
+            <h4>{{ $t("modal-2.final-block.h4") }}</h4>
+            <p>{{ $t("modal-2.final-block.p") }}</p>
         </template>
     </Modal>
 </template>

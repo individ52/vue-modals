@@ -5,6 +5,7 @@ import Modal from "../UI/Modals/Modal.vue";
 import useFetch from "@/hooks/useFetch";
 import TestAPI from "@/services/TestAPI";
 import ServerResponse, { ResponseStatus } from "../UI/ServerResponse/ServerResponse.vue";
+import { useI18n } from "vue-i18n";
 export interface TestForm {
     valueA: string;
     valueB: string;
@@ -30,14 +31,15 @@ export default defineComponent({
         },
         checkForm() {
             const errors = {} as TestForm;
-            if (!this.testFormData.valueA) errors["valueA"] = "Väärtus A on kohustuslik.";
-            if (!this.testFormData.valueB) errors["valueB"] = "Väärtus B on kohustuslik.";
+            if (!this.testFormData.valueA) errors["valueA"] = this.$t("modal-1.errors.a");
+            if (!this.testFormData.valueB) errors["valueB"] = this.$t("modal-1.errors.b");
             this.errors = errors;
             return !Object.keys(errors).length;
         },
     },
     components: { MainInput, Modal, ServerResponse },
     setup: () => {
+        const { t } = useI18n({ useScope: "global" });
         const testFormData: Ref<TestForm> = ref<TestForm>({
             valueA: "test a",
             valueB: "",
@@ -52,6 +54,7 @@ export default defineComponent({
             makeRequest,
             status,
             close,
+            t,
         };
     },
 });
@@ -59,16 +62,30 @@ export default defineComponent({
 
 <template>
     <Modal :show="show" @close="$emit('close')">
-        <template v-slot:header>Saada praktikaavaldus (Standart view)</template>
+        <template v-slot:header>{{ $t("modal-1.title") }}</template>
         <template v-slot:body>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="test-form">
-                <main-input :disabled="status == ResponseStatus.LOADING" v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
-                <main-input :disabled="status == ResponseStatus.LOADING" v-model.trim="testFormData.valueB" :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :error="errors['valueB']" />
+                <main-input
+                    :disabled="status == ResponseStatus.LOADING"
+                    v-model.trim="testFormData.valueA"
+                    :label="$t('modal-1.label.a')"
+                    :placeholder="$t('modal-1.label.a')"
+                    :error="errors['valueA']"
+                />
+                <main-input
+                    :disabled="status == ResponseStatus.LOADING"
+                    v-model.trim="testFormData.valueB"
+                    :label="$t('modal-1.label.b')"
+                    :placeholder="$t('modal-1.label.b')"
+                    :error="errors['valueB']"
+                />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="test-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
+            <button type="submit" form="test-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING">
+                <div>{{ $t("modal-1.buttons.send") }}</div>
+            </button>
         </template>
     </Modal>
 </template>

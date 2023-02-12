@@ -1,0 +1,75 @@
+{
+    "home-title": "Test buttons",
+    "author-title": "Author page",
+    "modal-1": {
+        "title": "Send praktice advertisement (Standart view)",
+        "label": {
+            "a": "Value A",
+            "b": "Value B"
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "send": "Send"
+        },
+        "errors": {
+            "a": "Value A is required",
+            "b": "Value B is required"
+        },
+        "final-block": {
+            "title": "Congratulations!",
+            "h4": "Thank you very much!",
+            "p": "Your request has been sent, we will contact you shortly."
+        }
+    },
+    "modal-2": {
+        "title": "Send praktice advertisement (New view)",
+        "label": {
+            "a": "Value A",
+            "b": "Value B"
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "send": "Send"
+        },
+        "errors": {
+            "a": "Value A is required",
+            "b": "Value B is required"
+        },
+        "final-block": {
+            "title": "Congratulations!",
+            "h4": "Thank you very much!",
+            "p": "Your request has been sent, we will contact you shortly."
+        }
+    },
+    "modal-3": {
+        "title": "Send praktice advertisement (Full new view)",
+        "label": {
+            "firstname": "First Name",
+            "lastname": "Last Name",
+            "gender": "Gender",
+            "files": "Your files",
+            "upload-subtitle": "Upload File",
+            "description": "Description"
+        },
+        "errors": {
+            "firstname": "First Name is required",
+            "lastname": "Last Name is required",
+            "gender": "Gender is required",
+            "email": "E-mail is required",
+            "description": "Description  is required"
+        },
+        "buttons": {
+            "cancel": "Cancel",
+            "send": "Send"
+        },
+        "gender": {
+            "male": "Male",
+            "female": "Female"
+        }
+    },
+    "buttons": {
+        "button-1": "Button 1",
+        "button-2": "Button 2",
+        "button-3": "Button 3"
+    }
+}

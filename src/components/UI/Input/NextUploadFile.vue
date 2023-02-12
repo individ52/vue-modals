@@ -2,6 +2,7 @@
 import { defineComponent } from "vue";
 import NextCrossBtn from "../Icons/NextCrossBtn.vue";
 import UploadIcon from "../Icons/UploadIcon.vue";
+import { useI18n } from "vue-i18n";
 
 enum FileTime {
     IMG = "IMG",
@@ -69,7 +70,10 @@ export default defineComponent({
         });
     },
     components: { UploadIcon, NextCrossBtn },
-    setup: () => {},
+    setup: () => {
+        const { t } = useI18n({ useScope: "global" });
+        return { t };
+    },
 });
 </script>
 
@@ -97,7 +101,7 @@ export default defineComponent({
             </div>
             <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>
                 <upload-icon />
-                <div class="next-upload-file__message__title">Upload file</div>
+                <div class="next-upload-file__message__title">{{ $t("modal-3.label.upload-subtitle") }}</div>
             </div>
         </div>
     </div>

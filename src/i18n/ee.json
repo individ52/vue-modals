@@ -1,0 +1,75 @@
+{
+    "home-title": "Testi nupud",
+    "author-title": "Autori leht",
+    "modal-1": {
+        "title": "Saada praktikakuulutus (standardvaade)",
+        "label": {
+            "a": "Väärtus A",
+            "b": "väärtus B"
+        },
+        "buttons": {
+            "cancel": "Tühista",
+            "send": "Saada"
+        },
+        "errors": {
+            "a": "Väärtus A on nõutav",
+            "b": "Väärtus B on nõutav"
+        },
+        "final-block": {
+            "title": "Palju õnne!",
+            "h4": "Suur aitäh!",
+            "p": "Teie päring on saadetud, võtame teiega peagi ühendust."
+        }
+    },
+    "modal-2": {
+        "title": "Saada praktikakuulutus (uus vaade)",
+        "label": {
+            "a": "Väärtus A",
+            "b": "väärtus B"
+        },
+        "buttons": {
+            "cancel": "Tühista",
+            "send": "Saada"
+        },
+        "errors": {
+            "a": "Väärtus A on nõutav",
+            "b": "Väärtus B on nõutav"
+        },
+        "final-block": {
+            "title": "Palju õnne!",
+            "h4": "Suur aitäh!",
+            "p": "Teie päring on saadetud, võtame teiega peagi ühendust."
+        }
+    },
+    "modal-3": {
+        "title": "Saada praktikakuulutus (täielik uus vaade)",
+        "label": {
+            "firstname": "Eesnimi",
+            "lastname": "Perenimi",
+            "gender": "Sugu",
+            "files": "Teie failid",
+            "upload-subtitle": "Laadi fail üles",
+            "description": "Kirjeldus"
+        },
+        "errors": {
+            "firstname": "Eesnimi on nõutav",
+            "perenimi": "Perekonnanimi on nõutav",
+            "gender": "Sugu on nõutav",
+            "email": "E-post on nõutav",
+            "description": "Kirjeldus on nõutav"
+        },
+        "buttons": {
+            "cancel": "Tühista",
+            "send": "Saada"
+        },
+        "gender": {
+            "male": "Male",
+            "female": "Naine"
+        }
+    },
+    "buttons": {
+        "button-1": "Nupp 1",
+        "button-2": "Nupp 2",
+        "button-3": "Nupp 3"
+    }
+}

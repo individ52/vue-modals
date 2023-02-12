@@ -1,5 +1,6 @@
 <script lang="ts">
 import { defineComponent, PropType } from "vue";
+import { useI18n } from "vue-i18n";
 import CrossBtn from "../Icons/CrossBtn.vue";
 
 export default defineComponent({
@@ -13,6 +14,10 @@ export default defineComponent({
             validator(value: string) {
                 return ["default", "next"].includes(value);
             },
+        },
+        setup() {
+            const { t } = useI18n({ useScope: "global" });
+            return { t };
         },
     },
 });
@@ -30,12 +35,12 @@ export default defineComponent({
                             </div>
                             <div class="modal__header">
                                 <h2>
-                                    <slot name="header"> default header </slot>
+                                    <slot name="header"></slot>
                                 </h2>
                             </div>
 
                             <div class="modal__body">
-                                <slot name="body"> default body </slot>
+                                <slot name="body"></slot>
                             </div>
                         </div>
 
@@ -47,7 +52,7 @@ export default defineComponent({
                                 }"
                                 @click="$emit('close')"
                             >
-                                Cancel
+                                {{ $t("modal-1.buttons.cancel") }}
                             </button>
                             <slot name="footer_button"></slot>
                         </div>
