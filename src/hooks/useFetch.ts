@@ -21,7 +21,6 @@ export default function useFetch(cb: () => void) {
         state.status = ResponseStatus.LOADING;
         try {
             const response: any = await cb();
-            console.log(response);
             state.message = response?.message;
             state.status = ResponseStatus.SUCCESS;
         } catch (e: any) {

@@ -96,7 +96,7 @@ export default defineComponent({
                     @click="removeItem(item)"
                 >
                     <next-cross-btn />
-                    <p v-if="FileTime.DOC == item.type">{{ item.url }} ({{ item.size }}KB)</p>
+                    <p v-if="FileTime.DOC == item.type">{{ item.url }}<br />({{ item.size }}KB)</p>
                 </div>
             </div>
             <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>

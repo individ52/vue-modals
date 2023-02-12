@@ -31,7 +31,6 @@ export default defineComponent({
         <select
             :disabled="disabled"
             :class="{ 'next-input__input': true, 'next-input__input-invalid': invalid, 'next-input__input--filed': modelValue?.length }"
-            type="text"
             :value="modelValue"
             @input="updateInput"
         >
