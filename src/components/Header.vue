@@ -42,6 +42,7 @@ export default defineComponent({
                         <select class="header__body__lang" @change="switchLang" v-model="lang">
                             <option value="ee">EE</option>
                             <option value="en">EN</option>
+                            <option value="fi">FI</option>
                         </select>
                     </nav>
                     <div class="header__burger" @click="isShowMenu = !isShowMenu">

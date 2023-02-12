@@ -1,0 +1,75 @@
+{
+    "home-title": "Testipainikkeet",
+    "author-title": "Tekijän sivu",
+    "modal-1": {
+        "title": "Lähetä harjoitusilmoitus (Normaali näkymä)",
+        "label": {
+            "a": "Arvo A",
+            "b": "Arvo B"
+        },
+        "buttons": {
+            "cancel": "Peruuttaa",
+            "send": "Lähettää"
+        },
+        "errors": {
+            "a": "Arvo A vaaditaan",
+            "b": "Arvo B vaaditaan"
+        },
+        "final-block": {
+            "title": "Onnittelut!",
+            "h4": "Kiitos paljon!",
+            "p": "Pyyntösi on lähetetty, otamme sinuun yhteyttä pian."
+        }
+    },
+    "modal-2": {
+        "title": "Lähetä harjoitusilmoitus (New view)",
+        "label": {
+            "a": "Arvo A",
+            "b": "Arvo B"
+        },
+        "buttons": {
+            "cancel": "Peruuttaa",
+            "send": "Lähettää"
+        },
+        "errors": {
+            "a": "Arvo A vaaditaan",
+            "b": "Arvo B vaaditaan"
+        },
+        "final-block": {
+            "title": "Onnittelut!",
+            "h4": "Kiitos paljon!",
+            "p": "Pyyntösi on lähetetty, otamme sinuun yhteyttä pian."
+        }
+    },
+    "modal-3": {
+        "title": "Lähetä harjoitusilmoitus (Full new view)",
+        "label": {
+            "firstname": "Etunimi",
+            "lastname": "Sukunimi",
+            "gender": "Sukupuoli",
+            "files": "Tiedostosi",
+            "upload-subtitle": "Lataa tiedosto",
+            "description": "Kuvaus"
+        },
+        "errors": {
+            "firstname": "Etunimi vaaditaan",
+            "lastname": "Sukunimi vaaditaan",
+            "gender": "Sukupuoli vaaditaan",
+            "email": "E-mail vaaditaan",
+            "description": "Kuvaus  vaaditaan"
+        },
+        "buttons": {
+            "cancel": "Peruuttaa",
+            "send": "Lähettää"
+        },
+        "gender": {
+            "male": "Uros",
+            "female": "Nainen"
+        }
+    },
+    "buttons": {
+        "button-1": "Painike 1",
+        "button-2": "Painike 2",
+        "button-3": "Painike 3"
+    }
+}
