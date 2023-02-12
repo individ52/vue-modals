@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import TestModalStep1 from "./TestModalStep1.vue";
-import TestModalStep2 from "./TestModalStep2.vue";
+import NextModalStep1 from "./NextModal1Step1.vue";
+import NextModalStep2 from "./NextModal1Step2.vue";
 export default defineComponent({
     props: {
         show: Boolean,
@@ -19,11 +19,11 @@ export default defineComponent({
             this.$emit("close");
         },
     },
-    components: { TestModalStep1, TestModalStep2 },
+    components: { NextModalStep1, NextModalStep2 },
 });
 </script>
 
 <template>
-    <test-modal-step-1 :show="show && step == 1" @close="$emit('close')" @next="nextStep()" />
-    <test-modal-step-2 :show="show && step == 2" @close="close()" />
+    <next-modal-step-1 :show="show && step == 1" @close="$emit('close')" @next="nextStep()" />
+    <next-modal-step-2 :show="show && step == 2" @close="close()" />
 </template>

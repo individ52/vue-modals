@@ -26,7 +26,7 @@ export default defineComponent({
     }),
     methods: {
         removeItem(item: any) {
-            const newValue = this.modelValue?.filter((v) => v.name != item.name);
+            const newValue = this.modelValue?.filter((v: any) => v.name != item.name);
             this.items = this.items.filter((v) => v.name != item.name);
             this.$emit("update:modelValue", newValue);
         },
@@ -64,7 +64,7 @@ export default defineComponent({
     },
     mounted() {
         this.items = [];
-        this.modelValue?.forEach((file: File) => {
+        this.modelValue?.forEach((file: any) => {
             this.addItem(file);
         });
     },
@@ -80,9 +80,12 @@ export default defineComponent({
             <input type="file" @change="uploaFile" />
             <div class="next-upload-file__items" v-if="modelValue?.length">
                 <div
-                    class="next-upload-file__item"
                     v-for="item in items"
                     :key="item"
+                    :class="{
+                        'next-upload-file__item': true,
+                        'next-upload-file__item--file': FileTime.DOC == item.type,
+                    }"
                     :style="{
                         backgroundImage: `url(${item.url})`,
                     }"

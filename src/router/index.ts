@@ -1,11 +1,22 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+import HomeView from "@/views/HomeView.vue";
+import AthorView from "@/views/AuthorView.vue";
+
+export enum AppLinks {
+    HOME = "/",
+    AUTHOR = "/author",
+}
 
 const routes: Array<RouteRecordRaw> = [
     {
-        path: "/",
+        path: AppLinks.HOME,
         name: "home",
         component: HomeView,
+    },
+    {
+        path: AppLinks.AUTHOR,
+        name: "Athor",
+        component: AthorView,
     },
     // {
     //     path: "/about",

@@ -28,7 +28,7 @@ export default defineComponent({
 </script>
 
 <template>
-    <Modal :show="show" @close="$emit('close')" :flip="true">
+    <Modal type="next" :show="show" @close="$emit('close')" :flip="true">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
             <h4>Suur Aitäh!</h4>

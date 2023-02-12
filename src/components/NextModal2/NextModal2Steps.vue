@@ -1,11 +1,12 @@
 <script lang="ts">
 import { defineComponent } from "vue";
-import NextModalStep1 from "./NextModalStep1.vue";
-import NextModalStep2 from "./NextModalStep2.vue";
+import NextModalStep1 from "./NextModal2Step1.vue";
+import NextModalStep2 from "./NextModal2Step2.vue";
 export default defineComponent({
     props: {
         show: Boolean,
     },
+    emits: ["close"],
     data: () => ({
         step: 1,
     }),
