@@ -1,8 +1,9 @@
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, ref } from "vue";
 import MenuBtn from "./UI/Icons/MenuBtn.vue";
 import { useI18n } from "vue-i18n";
 import { AppLinks } from "@/router";
+import { react } from "@babel/types";
 export default defineComponent({
     components: { MenuBtn },
     data: () => ({
@@ -10,9 +11,17 @@ export default defineComponent({
         AppLinks,
     }),
     setup: () => {
-        const { t } = useI18n({ useScope: "global" });
-        console.log(t);
-        return { t };
+        const { t, locale } = useI18n({ useScope: "global" });
+        const lang = ref<string>(localStorage.getItem("lang") ?? "ee");
+        locale.value = lang.value;
+
+        function switchLang(e: any) {
+            const switchedLangCode = e.target.value;
+            localStorage.setItem("lang", switchedLangCode);
+            lang.value = switchedLangCode;
+            locale.value = switchedLangCode;
+        }
+        return { t, switchLang, lang };
     },
 });
 </script>
@@ -30,6 +39,10 @@ export default defineComponent({
                     <nav class="header__body__nav">
                         <router-link :to="AppLinks.HOME" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("home-title") }}</router-link>
                         <router-link :to="AppLinks.AUTHOR" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("author-title") }}</router-link>
+                        <select class="header__body__lang" @change="switchLang" v-model="lang">
+                            <option value="ee">EE</option>
+                            <option value="en">EN</option>
+                        </select>
                     </nav>
                     <div class="header__burger" @click="isShowMenu = !isShowMenu">
                         <menu-btn :show="isShowMenu" />

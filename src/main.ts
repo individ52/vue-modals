@@ -1,7 +1,6 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
-import store from "./store";
 import "./assets/style/main.scss";
 import http from "./config/http";
 import { createI18n, useI18n } from "vue-i18n";
@@ -26,6 +25,5 @@ createApp(App, {
 })
     .use(i18n)
     .use(http)
-    .use(store)
     .use(router)
     .mount("#app");
