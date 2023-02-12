@@ -11,14 +11,20 @@ export default defineComponent({
     props: {
         show: Boolean,
     },
+    data: () => ({
+        closeTimeout: null || 0,
+    }),
     watch: {
         show() {
             if (this.show) {
-                setTimeout(() => {
+                this.closeTimeout = setTimeout(() => {
                     this.$emit("close");
                 }, 5000);
             }
         },
+    },
+    unmounted() {
+        if (this.closeTimeout) clearTimeout(this.closeTimeout);
     },
 });
 </script>

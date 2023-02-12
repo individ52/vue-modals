@@ -10,6 +10,7 @@ export default defineComponent({
         invalid: Boolean,
         error: String || null || undefined,
         modelValue: String,
+        disabled: undefined || Boolean
     },
     methods: {
         updateInput(e: any) {
@@ -23,7 +24,7 @@ export default defineComponent({
 <template>
     <div class="input-container">
         <label class="input-label" for="">{{ label }}</label>
-        <input :class="'input-input ' + (invalid ? 'input-input-invalid' : '')" type="text" :placeholder="placeholder" :value="modelValue" @input="updateInput" />
+        <input :disabled="disabled" :class="'input-input ' + (invalid ? 'input-input-invalid' : '')" type="text" :placeholder="placeholder" :value="modelValue" @input="updateInput" />
         <transition name="height-increase">
             <label class="input-error flex justify-content-end align-items-center" v-if="error" for=""><error-icon /> {{ error }}</label>
         </transition>
