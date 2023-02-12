@@ -1,0 +1,88 @@
+.next-input {
+    &__content {
+        position: relative;
+        margin-bottom: 20px;
+        &--error {
+            .next-input__input {
+                border: 1px solid #ff5630;
+            }
+            .next-input__label {
+                color: #ff5630;
+            }
+        }
+
+        select {
+            &:after {
+                display: none;
+            }
+        }
+    }
+    &__input {
+        display: block;
+        width: 100%;
+        padding: 16px 14px;
+        border: 1px solid rgba(145, 158, 171, 0.32);
+        border-radius: 8px;
+        box-sizing: border-box;
+
+        // text
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #637381;
+
+        &--filed {
+            outline: none;
+            ~ .next-input__label {
+                top: -8px;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 12px;
+            }
+        }
+        &:focus {
+            outline: none;
+            ~ .next-input__label {
+                top: -8px;
+                font-size: 13px;
+                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                line-height: 12px;
+            }
+        }
+    }
+    &__label {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 24px;
+        color: #637381;
+        position: absolute;
+        pointer-events: none;
+
+        background: #fff;
+        left: 15px;
+        top: 16px;
+        padding: 0 5px;
+        transition: 0.2s ease all;
+        -moz-transition: 0.2s ease all;
+        -webkit-transition: 0.2s ease all;
+    }
+    &__error {
+        margin-top: 12.6px;
+        margin-left: 12.6px;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+
+        color: #ff5630;
+        svg {
+            margin-right: 4.65px;
+        }
+    }
+}

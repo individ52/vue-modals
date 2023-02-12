@@ -5,9 +5,12 @@ import Modal from "../UI/Modals/Modal.vue";
 import useFetch from "@/hooks/useFetch";
 import TestAPI from "@/services/TestAPI";
 import ServerResponse, { ResponseStatus } from "../UI/ServerResponse/ServerResponse.vue";
-export interface TestForm {
-    valueA: string;
-    valueB: string;
+import NextInput from "../UI/Input/NextInput.vue";
+import NextSelect from "../UI/Input/NextSelect.vue";
+export interface NextForm {
+    firstname: string;
+    lastname: string;
+    gender: string;
 }
 
 export default defineComponent({
@@ -15,7 +18,7 @@ export default defineComponent({
         show: Boolean,
     },
     data: () => ({
-        errors: {} as TestForm,
+        errors: {} as NextForm,
         ResponseStatus,
         // message: "",
         // status: ResponseStatus.NONE,
@@ -24,16 +27,16 @@ export default defineComponent({
         async submitForm(e: any) {
             e.preventDefault();
             if (this.checkForm()) {
-                await this.makeRequest();
-                if (this.status == ResponseStatus.SUCCESS) {
-                    this.$emit("next");
-                }
+                // await this.makeRequest();
+                // if (this.status == ResponseStatus.SUCCESS) {
+                //     this.$emit("next");
+                // }
             }
         },
         checkForm() {
-            const errors = {} as TestForm;
-            if (!this.testFormData.valueA) errors["valueA"] = "Väärtus A on kohustuslik.";
-            if (!this.testFormData.valueB) errors["valueB"] = "Väärtus B on kohustuslik.";
+            const errors = {} as NextForm;
+            if (!this.nextFormData.firstname) errors["firstname"] = "Eesnimi on kohustuslik.";
+            if (!this.nextFormData.lastname) errors["lastname"] = "Perekonnanimi B on kohustuslik.";
             this.errors = errors;
             return !Object.keys(errors).length;
         },
@@ -50,18 +53,19 @@ export default defineComponent({
             }
         },
     },
-    components: { MainInput, Modal, ServerResponse },
+    components: { MainInput, Modal, ServerResponse, NextInput, NextSelect },
     setup: () => {
-        const testFormData: Ref<TestForm> = ref<TestForm>({
-            valueA: "test a",
-            valueB: "",
+        const nextFormData: Ref<NextForm> = ref<NextForm>({
+            firstname: "Leonid",
+            lastname: "",
+            gender: "Mees",
         });
         const { message, makeRequest, status, close } = useFetch(async function () {
-            return await TestAPI.postTest(testFormData.value);
+            // return await TestAPI.postTest(nextFormData.value);
         });
 
         return {
-            testFormData,
+            nextFormData,
             message,
             makeRequest,
             status,
@@ -72,17 +76,18 @@ export default defineComponent({
 </script>
 
 <template>
-    <Modal :show="show" @close="$emit('close')">
+    <Modal type="next" :show="show" @close="$emit('close')">
         <template v-slot:header>Saada praktikaavaldus</template>
         <template v-slot:body>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
-            <form @submit="submitForm" id="test-form">
-                <main-input :disabled="status == ResponseStatus.LOADING" v-model.trim="testFormData.valueA" :label="'VÄÄRTUS A'" :placeholder="'Väärtus A'" :error="errors['valueA']" />
-                <main-input :disabled="status == ResponseStatus.LOADING" v-model.trim="testFormData.valueB" :label="'VÄÄRTUS B'" :placeholder="'Väärtus B'" :error="errors['valueB']" />
+            <form @submit="submitForm" id="next-form">
+                <next-input :disabled="false" :error="errors['firstname']" label="Nimi" v-model="nextFormData.firstname" />
+                <next-input :disabled="false" :error="errors['lastname']" label="Perekonnanimi" v-model="nextFormData.lastname" />
+                <next-select :disabled="false" :error="errors['gender']" label="Sugu" v-model="nextFormData.gender" :values="['Mees', 'Naine']" />
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="test-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
+            <button type="submit" form="next-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
         </template>
     </Modal>
 </template>
