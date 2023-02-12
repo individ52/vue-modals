@@ -61,7 +61,7 @@
     }
 }
 
-.btn2 {
+.next-btn {
     padding: 11px 22px;
     border-radius: 8px;
     transition: 1s all;
@@ -73,6 +73,16 @@
         color: #fff;
         &:hover {
             background-color: $color-libs-primary-alt;
+            transition: 1s all;
+        }
+    }
+    &--warning {
+        background: $color-libs-warning;
+        font: $libs-font-p;
+        color: #000;
+        border: none;
+        &:hover {
+            background-color: $color-libs-warning-alt;
             transition: 1s all;
         }
     }

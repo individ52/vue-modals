@@ -40,7 +40,15 @@ export default defineComponent({
                         </div>
 
                         <div class="modal__footer flex justify-content-between">
-                            <button class="btn btn--gray" @click="$emit('close')">Cancel</button>
+                            <button
+                                :class="{
+                                    'btn btn--gray': type == 'default',
+                                    'next-btn next-btn--warning': type == 'next',
+                                }"
+                                @click="$emit('close')"
+                            >
+                                Cancel
+                            </button>
                             <slot name="footer_button"></slot>
                         </div>
                     </div>

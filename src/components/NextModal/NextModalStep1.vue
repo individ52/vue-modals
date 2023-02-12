@@ -97,7 +97,7 @@ export default defineComponent({
             </form>
         </template>
         <template v-slot:footer_button>
-            <button type="submit" form="next-form" class="btn btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
+            <button type="submit" form="next-form" class="next-btn next-btn--primary pulse--text" :disabled="status == ResponseStatus.LOADING"><div>Saada</div></button>
         </template>
     </Modal>
 </template>

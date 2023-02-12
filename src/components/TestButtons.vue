@@ -15,7 +15,7 @@ export default defineComponent({
     <div class="page-buttons flex justify-content-center align-items-center">
         <div class="page-buttons__wrap flex justify-content-around">
             <button class="btn btn--primary" @click="showTest = !showTest">Nupp 1</button>
-            <button class="btn2 btn2--primary" @click="showNext = !showNext">Nupp 2</button>
+            <button class="next-btn next-btn--primary" @click="showNext = !showNext">Nupp 2</button>
         </div>
     </div>
     <test-modal-steps :show="showTest" @close="showTest = false" />
