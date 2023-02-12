@@ -18,6 +18,7 @@ interface FileItem {
 export default defineComponent({
     props: {
         modelValue: Array,
+        label: String,
     },
     data: () => ({
         items: [] as FileItem[],
@@ -74,24 +75,27 @@ export default defineComponent({
 
 <template>
     <div class="next-upload-file">
-        <input type="file" @change="uploaFile" />
-        <div class="next-upload-file__items" v-if="modelValue?.length">
-            <div
-                class="next-upload-file__item"
-                v-for="item in items"
-                :key="item"
-                :style="{
-                    backgroundImage: `url(${item.url})`,
-                }"
-                @click="removeItem(item)"
-            >
-                <next-cross-btn />
-                <p v-if="FileTime.DOC == item.type">{{ item.url }} ({{ item.size }}KB)</p>
+        <label class="next-upload-file__label">{{ label }}</label>
+        <div class="next-upload-file__content">
+            <input type="file" @change="uploaFile" />
+            <div class="next-upload-file__items" v-if="modelValue?.length">
+                <div
+                    class="next-upload-file__item"
+                    v-for="item in items"
+                    :key="item"
+                    :style="{
+                        backgroundImage: `url(${item.url})`,
+                    }"
+                    @click="removeItem(item)"
+                >
+                    <next-cross-btn />
+                    <p v-if="FileTime.DOC == item.type">{{ item.url }} ({{ item.size }}KB)</p>
+                </div>
             </div>
-        </div>
-        <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>
-            <upload-icon />
-            <div class="next-upload-file__message__title">Upload file</div>
+            <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>
+                <upload-icon />
+                <div class="next-upload-file__message__title">Upload file</div>
+            </div>
         </div>
     </div>
 </template>

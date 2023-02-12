@@ -98,7 +98,7 @@ export default defineComponent({
                 <next-input :disabled="false" :error="errors['lastname']" label="Perekonnanimi" v-model="nextFormData.lastname" />
                 <next-select :disabled="false" :error="errors['gender']" label="Sugu" v-model="nextFormData.gender" :values="['Mees', 'Naine']" />
                 <next-input :disabled="false" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
-                <next-upload-file :disabled="false" :error="errors['files']" label="Files" v-model="nextFormData.files" />
+                <next-upload-file :disabled="false" :error="errors['files']" label="Sinu CV" v-model="nextFormData.files" />
                 <next-textarea :disabled="false" :error="errors['description']" label="Kirjeldus" v-model="nextFormData.description" />
             </form>
         </template>
