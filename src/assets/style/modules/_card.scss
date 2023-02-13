@@ -1,0 +1,40 @@
+.card {
+    width: 100%;
+    background: #ffffff;
+    box-shadow: -40px 140px 180px -8px rgba(145, 158, 171, 0.24);
+
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.5s all;
+
+    &__picture {
+        height: 360px;
+        width: 100%;
+        background-repeat: no-repeat, repeat;
+        background-size: cover;
+    }
+    &__content {
+        padding: 24px;
+        &__title {
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 28px;
+            color: #212b36;
+        }
+        &__description {
+            margin-top: 24px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #637381;
+        }
+        &__buttons {
+            margin-top: 24px;
+        }
+    }
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: -40px 40px 80px -8px rgba(145, 158, 171, 0.5);
+        transition: 0.5s all;
+    }
+}
