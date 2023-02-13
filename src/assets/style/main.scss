@@ -6,19 +6,19 @@
 
 // Layout
 @import "./layout/base";
-@import "./layout/buttons";
+@import "./layout/buttons/buttons";
+@import "./layout/inputs/input";
+@import "./layout/inputs/next-input";
+@import "./layout/inputs/upload-file";
 
 // Modules
-@import "./modules/header";
-@import "./modules//page-buttons";
-@import "./modules/modal";
-@import "./modules/cross-btn";
-@import "./modules/menu-btn";
-@import "./modules/input";
-@import "./modules/next-input";
-@import "./modules/server-response/server-response";
-@import "./modules/upload-file";
-@import "./modules/card";
+@import "./modules/pages/header";
+@import "./modules/pages/page-buttons";
+@import "./modules/components/modal";
+@import "./modules/buttons/cross-btn";
+@import "./modules/buttons/menu-btn";
+@import "./modules/components/server-response/server-response";
+@import "./modules/components/card";
 
 // Partials
 @import "./partials/animations";

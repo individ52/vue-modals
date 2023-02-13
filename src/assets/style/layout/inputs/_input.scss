@@ -21,7 +21,7 @@
         border: 1px solid $color-gray;
         border-radius: 2px;
         &-invalid {
-            border: 1px solid red;
+            border: 1px solid $input-error;
         }
         z-index: 20;
     }
@@ -29,7 +29,7 @@
         font: $nwy-font-label;
         height: auto;
         margin-top: 8px;
-        color: red;
+        color: $input-error;
         z-index: 10;
         svg {
             margin-right: 5px;

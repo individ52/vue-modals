@@ -1,14 +1,4 @@
-// Define vars we'll be using
-$brand-success: #5cb85c;
 $loader-size: 2em;
-$check-height: $loader-size/2;
-$check-width: $check-height/2;
-$check-left: ($loader-size/6 + $loader-size/12);
-$check-thickness: 2px;
-$check-color: $brand-success;
-
-@import "./response-checkmark";
-@import "./response-cross";
 @import "./response-spinner";
 
 .response {
@@ -41,21 +31,6 @@ $check-color: $brand-success;
         background: $color-light-green;
         color: $color-black-green;
     }
-
-    // &__mark {
-    //     position: absolute;
-    //     right: 50%;
-    //     transform: translateX(50%);
-    //     &--result {
-    //         transform: translateX(0);
-    //         left: 0;
-    //         transition: 1s all;
-    //     }
-    // }
-    // &__message {
-    //     margin-left: 2.5em;
-    //     font: $nwy-font-p;
-    // }
 }
 
 @keyframes showResponseMessage {

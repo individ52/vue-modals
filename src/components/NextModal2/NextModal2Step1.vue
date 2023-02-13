@@ -54,6 +54,7 @@ export default defineComponent({
             if (!this.nextFormData.lastname) errors["lastname"] = this.$t("modal-3.errors.lastname");
             if (!this.nextFormData.gender) errors["gender"] = this.$t("modal-3.errors.gender");
             if (!this.nextFormData.email) errors["email"] = this.$t("modal-3.errors.email");
+            if (!this.nextFormData.files.length) errors["files"] = this.$t("modal-3.errors.files");
             if (!this.nextFormData.description) errors["description"] = this.$t("modal-3.errors.description");
             this.errors = errors;
             return !Object.keys(errors).length;

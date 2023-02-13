@@ -20,6 +20,7 @@ export default defineComponent({
     props: {
         modelValue: Array,
         label: String,
+        error: Boolean,
     },
     data: () => ({
         items: [] as FileItem[],
@@ -79,8 +80,19 @@ export default defineComponent({
 
 <template>
     <div class="next-upload-file">
-        <label class="next-upload-file__label">{{ label }}</label>
-        <div class="next-upload-file__content">
+        <label
+            :class="{
+                'next-upload-file__label': true,
+                'next-upload-file__label--error': error,
+            }"
+            >{{ label }}</label
+        >
+        <div
+            :class="{
+                'next-upload-file__content': true,
+                'next-upload-file__content--error': error,
+            }"
+        >
             <input type="file" @change="uploaFile" />
             <div class="next-upload-file__items" v-if="modelValue?.length">
                 <div
@@ -101,7 +113,14 @@ export default defineComponent({
             </div>
             <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>
                 <upload-icon />
-                <div class="next-upload-file__message__title">{{ $t("modal-3.label.upload-subtitle") }}</div>
+                <div
+                    :class="{
+                        'next-upload-file__message__title': true,
+                        'next-upload-file__message__title--error': error,
+                    }"
+                >
+                    {{ $t("modal-3.label.upload-subtitle") }}
+                </div>
             </div>
         </div>
     </div>

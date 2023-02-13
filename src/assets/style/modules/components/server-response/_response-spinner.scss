@@ -11,17 +11,6 @@
     height: $loader-size;
 }
 
-.load-fail {
-    border-color: red !important;
-}
-
-.load-complete {
-    -webkit-animation: none;
-    animation: none;
-    border-color: $check-color;
-    transition: border 500ms ease-out;
-}
-
 @keyframes loader-spin {
     0% {
         transform: rotate(0deg);

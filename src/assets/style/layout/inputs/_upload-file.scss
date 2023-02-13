@@ -4,7 +4,11 @@
         font-weight: 400;
         font-size: 16px;
         line-height: 24px;
-        color: #637381;
+        color: $color-libs-label;
+
+        &--error {
+            color: $color-libs-error;
+        }
     }
     &__content {
         padding: 16px;
@@ -19,6 +23,9 @@
         align-items: center;
         box-sizing: border-box;
         height: auto;
+        &--error {
+            border: 1px dashed $color-libs-error;
+        }
     }
     input {
         display: block;
@@ -28,7 +35,7 @@
         cursor: pointer;
         width: 100%;
         height: 100%;
-        background-color: red;
+        background-color: $input-error;
         opacity: 0;
     }
     &__message {
@@ -40,7 +47,10 @@
             font-size: 14px;
             line-height: 22px;
 
-            color: #919eab;
+            color: $color-libs-message;
+            &--error {
+                color: $color-libs-error;
+            }
         }
     }
     &__items {
