@@ -20,6 +20,15 @@ export default defineComponent({
             return { t };
         },
     },
+    watch: {
+        show() {
+            if (this.show) {
+                document.querySelector("body")?.classList.add("body--no-scroll");
+            } else {
+                document.querySelector("body")?.classList.remove("body--no-scroll");
+            }
+        },
+    },
 });
 </script>
 
@@ -34,9 +43,7 @@ export default defineComponent({
                                 <cross-btn />
                             </div>
                             <div class="modal__header">
-                                <h2>
-                                    <slot name="header"></slot>
-                                </h2>
+                                <slot name="header"></slot>
                             </div>
 
                             <div class="modal__body">
@@ -44,7 +51,7 @@ export default defineComponent({
                             </div>
                         </div>
 
-                        <div class="modal__footer flex justify-content-between">
+                        <div class="modal__footer flex">
                             <button
                                 :class="{
                                     'btn btn--gray': type == 'default',

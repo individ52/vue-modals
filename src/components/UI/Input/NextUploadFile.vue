@@ -97,21 +97,26 @@ export default defineComponent({
             }"
         >
             <input type="file" @change="uploaFile" :disabled="disabled" />
-            <div class="next-upload-file__items" v-if="modelValue?.length">
-                <div
-                    v-for="item in items"
-                    :key="item"
-                    :class="{
-                        'next-upload-file__item': true,
-                        'next-upload-file__item--file': FileTime.DOC == item.type,
-                    }"
-                    :style="{
-                        backgroundImage: `url(${item.url})`,
-                    }"
-                    @click="removeItem(item)"
-                >
-                    <next-cross-btn />
-                    <p v-if="FileTime.DOC == item.type">{{ item.url }}<br />({{ item.size }}KB)</p>
+            <div
+                :class="{
+                    'next-upload-file__items': true,
+                }"
+                v-if="modelValue?.length"
+            >
+                <div v-for="item in items" :key="item" class="next-upload-file__item__wrap">
+                    <div
+                        :class="{
+                            'next-upload-file__item': true,
+                            'next-upload-file__item--file': FileTime.DOC == item.type,
+                        }"
+                        :style="{
+                            backgroundImage: `url(${item.url})`,
+                        }"
+                        @click="removeItem(item)"
+                    >
+                        <next-cross-btn />
+                        <p v-if="FileTime.DOC == item.type">{{ item.url }}<br />({{ item.size }}KB)</p>
+                    </div>
                 </div>
             </div>
             <div class="next-upload-file__message flex flex-column justify-content-center align-items-center" v-else>
