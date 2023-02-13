@@ -1,7 +1,7 @@
-$coef: 1.7;
+$coef: 2;
 .menu-btn {
     width: 60px / $coef;
-    height: 45px / $coef;
+    height: 27px / $coef;
     position: relative;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -16,9 +16,9 @@ $coef: 1.7;
     span {
         display: block;
         position: absolute;
-        height: 9px / $coef;
-        width: 100%;    
-        background: $color-primary;
+        height: 6px / $coef;
+        width: 100%;
+        background: $color-seconary;
         border-radius: 9px / $coef;
         opacity: 1;
         left: 0;
@@ -35,11 +35,11 @@ $coef: 1.7;
         }
 
         &:nth-child(2) {
-            top: 18px / $coef;
+            top: 12px / $coef;
         }
 
         &:nth-child(3) {
-            top: 36px / $coef;
+            top: 24px / $coef;
         }
     }
     &-open {

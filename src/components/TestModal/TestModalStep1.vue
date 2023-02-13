@@ -68,7 +68,7 @@ export default defineComponent({
     <Modal :show="show" @close="$emit('close')">
         <template v-slot:header>{{ $t("modal-1.title") }}</template>
         <template v-slot:body>
-            <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
+            <div class="flex justify-content-center modal__form-response" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="test-form">
                 <main-input
                     :disabled="status == ResponseStatus.LOADING"

@@ -91,7 +91,7 @@ export default defineComponent({
     <Modal type="next" :show="show" @close="$emit('close')">
         <template v-slot:header>{{ $t("modal-3.title") }}</template>
         <template v-slot:body>
-            <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
+            <div class="flex justify-content-center modal__form-response" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="next-form">
                 <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['firstname']" :label="$t('modal-3.label.firstname')" v-model="nextFormData.firstname" />
                 <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['lastname']" :label="$t('modal-3.label.lastname')" v-model="nextFormData.lastname" />

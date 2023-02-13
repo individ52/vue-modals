@@ -18,6 +18,34 @@
         }
     }
 }
+.height-increase-smoothly {
+    &-enter {
+        opacity: 0;
+        height: 0;
+        margin: 0 auto;
+        padding: 0 auto;
+        transition: all 0.3s;
+        &-active {
+            transition: all 0.3s;
+        }
+        &-from {
+            opacity: 0;
+            height: 0;
+            margin: 0 auto;
+            padding: 0 auto;
+            transition: all 0.3s;
+        }
+    }
+    &-leave {
+        &-active {
+            opacity: 0;
+            height: 0;
+            margin: 0 auto;
+            padding: 0 auto;
+            transition: all 0.3s;
+        }
+    }
+}
 
 .sub-menu {
     &-enter {

@@ -22,6 +22,15 @@ export default defineComponent({
         }
         return { t, switchLang, lang };
     },
+    watch: {
+        isShowMenu() {
+            if (this.isShowMenu) {
+                document.querySelector("body")?.classList.add("body--no-scroll");
+            } else {
+                document.querySelector("body")?.classList.remove("body--no-scroll");
+            }
+        },
+    },
 });
 </script>
 

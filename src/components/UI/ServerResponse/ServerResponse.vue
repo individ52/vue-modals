@@ -50,7 +50,9 @@ export default defineComponent({
                     <error-icon />
                     <p>{{ message }}</p>
                 </div>
-                <cross-btn @click="$emit('close')" />
+                <div class="response__close">
+                    <cross-btn @click="$emit('close')" />
+                </div>
             </div>
         </transition>
     </div>

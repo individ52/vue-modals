@@ -4,23 +4,33 @@ $loader-size: 2em;
 .response {
     width: 100%;
     height: auto;
+    position: relative;
     &__wrap {
         width: 100%;
         border-radius: 8px;
         padding: 15px 18px;
-        margin-bottom: 10px;
+        padding-right: 50px;
         font-size: 14px;
         font-weight: 400;
         line-height: 22px;
         letter-spacing: 0px;
         box-sizing: border-box;
         text-align: left;
+
         p {
             display: inline-block;
         }
         svg {
-            margin-right: 5px;
+            margin-right: 10px;
         }
+        .close-container {
+            transform: scale(0.6);
+        }
+    }
+    &__close {
+        position: absolute;
+        top: 5px;
+        right: 5px;
     }
     &--error {
         background: $color-light-red;
