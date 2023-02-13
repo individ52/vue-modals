@@ -36,10 +36,12 @@ export default defineComponent({
             }
         },
         uploaFile(e: any) {
-            const file: File = e.target.files[0];
-            const newValue = [...(this.modelValue ?? []), file];
+            const files: File[] = e.target.files;
+            console.log(files);
+            const newValue = [...(this.modelValue ?? []), ...files];
             this.$emit("update:modelValue", newValue);
-            this.addItem(file);
+
+            for (let i = 0; i < files.length; i++) this.addItem(files[i]);
             e.target.value = "";
         },
         addItem(file: File) {
@@ -96,7 +98,7 @@ export default defineComponent({
                 'next-upload-file__content--error': error,
             }"
         >
-            <input type="file" @change="uploaFile" :disabled="disabled" />
+            <input type="file" @change="uploaFile" :disabled="disabled" multiple="multiple" v-if="!modelValue?.length" />
             <div
                 :class="{
                     'next-upload-file__items': true,
@@ -116,6 +118,12 @@ export default defineComponent({
                     >
                         <next-cross-btn />
                         <p v-if="FileTime.DOC == item.type">{{ item.url }}<br />({{ item.size }}KB)</p>
+                    </div>
+                </div>
+                <div key="+" class="next-upload-file__item__wrap">
+                    <input type="file" @change="uploaFile" :disabled="disabled" multiple="multiple" v-if="modelValue?.length" />
+                    <div class="next-upload-file__item next-upload-file__item--file">
+                        <p class="add">+</p>
                     </div>
                 </div>
             </div>
