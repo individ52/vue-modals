@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 export default defineComponent({
     props: {
-        show: Boolean,
+        show: Boolean || undefined,
     },
 });
 </script>

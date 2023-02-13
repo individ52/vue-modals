@@ -101,7 +101,7 @@
     },
     "doc-block-4": {
         "title": "Lataa syöttö",
-        "description": "Projektissa toteutui lataussyöte. Jos ladattavia tiedostoja ei ole, on kuvake. Jos lohkossa on joitain kohteita, tulee näkyviin kohta \"+\" ja klikkaa sitä on mahdollista ladata useita kohteita. Jos nimikkeiden määrä on suurempi kuin mahdollista mahtuu lohkoon, voit <b>vierittää X:llä</b> nähdäksesi kaikki elementit ja hallitaksesi niitä. Poista elementti napsauttamalla sitä ja se poistetaan ja ei lähetä lopullista pyyntöä.<br /> Näytön ominaisuudet: jos lataat kuvan, näet tämän kuvan <b>pienen esikatselun</b>. Jos lähetät tiedostoja, näet <b>tunnisteen</b> b> tästä tiedostosta ja sen <b>koosta</b>."
+        "description": "Projektissa toteutui lataussyöte. Jos ladattavia tiedostoja ei ole, on kuvake. Jos lohkossa on joitain kohteita, tulee näkyviin kohta \"+\" ja klikkaa sitä on mahdollista ladata useita kohteita. Jos nimikkeiden määrä on suurempi kuin mahdollista mahtuu lohkoon, voit <b>vierittää X:llä</b> nähdäksesi kaikki elementit ja hallitaksesi niitä. Poista elementti napsauttamalla sitä ja se poistetaan ja ei lähetä lopullista pyyntöä.<br /> Näytön ominaisuudet: jos lataat kuvan, näet tämän kuvan <b>pienen esikatselun</b>. Jos lähetät tiedostoja, näet <b>tunnisteen</b> tästä tiedostosta ja sen <b>koosta</b>."
     },
     "doc-block-5": {
         "title": "Modaalityyppi ja pyynnöt",

@@ -98,14 +98,14 @@ export default defineComponent({
                 'next-upload-file__content--error': error,
             }"
         >
-            <input type="file" @change="uploaFile" :disabled="disabled" multiple="multiple" v-if="!modelValue?.length" />
+            <input type="file" @change="uploaFile" :disabled="disabled" multiple="true" v-if="!modelValue?.length" />
             <div
                 :class="{
                     'next-upload-file__items': true,
                 }"
                 v-if="modelValue?.length"
             >
-                <div v-for="item in items" :key="item" class="next-upload-file__item__wrap">
+                <div v-for="item in items" :key="item.size" class="next-upload-file__item__wrap">
                     <div
                         :class="{
                             'next-upload-file__item': true,
@@ -121,7 +121,7 @@ export default defineComponent({
                     </div>
                 </div>
                 <div key="+" class="next-upload-file__item__wrap">
-                    <input type="file" @change="uploaFile" :disabled="disabled" multiple="multiple" v-if="modelValue?.length" />
+                    <input type="file" @change="uploaFile" :disabled="disabled" multiple="true" v-if="modelValue?.length" />
                     <div class="next-upload-file__item next-upload-file__item--file">
                         <p class="add">+</p>
                     </div>
