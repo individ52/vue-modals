@@ -87,19 +87,6 @@
         "title": "Painike 3 => Modaali 3",
         "description": "Tämä on painike 3, joka avaa uuden modaalin kaikilla syötteillä: tekstinsyöttö, valinnat, tiedostojen lataaminen, kuvaus.<br /><i>Uusi modaalimuotoilu</i>"
     },
-
-    "card-1": {
-        "title": "Button 1 => Modal 1",
-        "description": "This is button 1 that opens test modal with 2 fields: value A and value B<br/><i>Default modal design</i>"
-    },
-    "card-2": {
-        "title": "Button 2 => Modal 2",
-        "description": "This is button 2 that opens test modal with 2 fields: value A and value B.<br /><i>New modal design</i>"
-    },
-    "card-3": {
-        "title": "Button 3 => Modal 3",
-        "description": "This is button 3 that opens new modal with all inputs: text inputs, selects, upload files, description.<br /><i>New modal design</i>"
-    },
     "doc-block-1": {
         "title": "Painikkeet",
         "description": "Tässä projektissa tehtiin 5 painikemallia ja monissa niistä on animaatio hoverissa. Ne eroavat kirjasinten tyylin, taustavärien ja toimintojen eli napsautuksen jälkeisten toimintojen mukaan. Lisäksi luotiin 'ripple'-direktiivi, joka lisää aaltoiluvaikutusta klikkaus."
