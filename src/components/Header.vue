@@ -39,6 +39,7 @@ export default defineComponent({
                     <nav class="header__body__nav">
                         <router-link :to="AppLinks.HOME" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("home-title") }}</router-link>
                         <router-link :to="AppLinks.AUTHOR" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("author-title") }}</router-link>
+                        <router-link :to="AppLinks.AUTHOR" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("author-title") }}</router-link>
                         <select class="header__body__lang" @change="switchLang" v-model="lang">
                             <option value="ee">EE</option>
                             <option value="en">EN</option>
@@ -55,6 +56,11 @@ export default defineComponent({
                     <nav class="header__sub-menu__content">
                         <router-link :to="AppLinks.HOME" class="header__sub-menu__item" active-class="header__sub-menu__item--active">{{ $t("home-title") }}</router-link>
                         <router-link :to="AppLinks.AUTHOR" class="header__sub-menu__item" active-class="header__sub-menu__item--active">{{ $t("author-title") }}</router-link>
+                        <select class="header__body__lang" @change="switchLang" v-model="lang">
+                            <option value="ee">EE</option>
+                            <option value="en">EN</option>
+                            <option value="fi">FI</option>
+                        </select>
                     </nav>
                 </div>
             </transition>

@@ -31,6 +31,10 @@ export default defineComponent({
                 await this.makeRequest();
                 if (this.status == ResponseStatus.SUCCESS) {
                     this.$emit("next");
+                    this.nextFormData = {
+                        valueA: "",
+                        valueB: "",
+                    };
                 }
             }
         },

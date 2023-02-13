@@ -37,6 +37,14 @@ export default defineComponent({
                 await this.makeRequest();
                 if (this.status == ResponseStatus.SUCCESS) {
                     this.$emit("next");
+                    this.nextFormData = {
+                        firstname: "",
+                        lastname: "",
+                        gender: "",
+                        email: "",
+                        description: "",
+                        files: [],
+                    };
                 }
             }
         },
@@ -63,7 +71,7 @@ export default defineComponent({
             files: [],
         });
         const { message, makeRequest, status, close } = useFetch(async function () {
-            return await TestAPI.postTest({} as TestForm);
+            return await TestAPI.postTest(nextFormData.value);
         });
 
         return {

@@ -4,10 +4,12 @@ import { $http } from "@/config/http";
     errorCounter used to display error alert each second request
 */
 
+import { NextForm } from "@/components/NextModal2/NextModal2Step1.vue";
+
 var errorCounter = 1;
 
 export default class TestAPI {
-    static async postTest(test: TestForm) {
+    static async postTest(test: TestForm | NextForm) {
         await sleep(1000); // fictional delay to show loader animation
         console.log("form values to make requrest:", test);
         errorCounter++;

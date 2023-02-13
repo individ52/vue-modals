@@ -27,7 +27,7 @@ export default defineComponent({
     <div :class="`modal-${type}`">
         <transition :name="flip ? 'modal-flip' : 'modal'">
             <div class="modal__mask" v-if="show">
-                <div class="modal__wrapper" @click="$emit('close')">
+                <div class="modal__wrapper">
                     <div class="modal__container" @click.stop>
                         <div class="modal__main">
                             <div class="modal__cross" @click="$emit('close')">
