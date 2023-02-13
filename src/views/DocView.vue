@@ -73,8 +73,7 @@ export default defineComponent({
             <h2 class="doc-page__block__title">{{ t("doc-block-2.title") }}</h2>
             <p class="doc-page__block__description" v-html="t('doc-block-2.description')"></p>
             <button class="next-btn next-btn--warning ripple-effect" @click="displayInputErorrs" v-ripple>
-                {{ Object.keys(inputErrors).length ? "Hide" : "Display" }}
-                errors
+                {{ Object.keys(inputErrors).length ? t("buttons.hide-error") : t("buttons.display-error") }}
             </button>
             <div class="doc-page__block__block flex justify-content-between align-items-center flex-wrap">
                 <div class="doc-page__block__block__item">
@@ -94,7 +93,9 @@ export default defineComponent({
         <div class="doc-page__block">
             <h2 class="doc-page__block__title">{{ t("doc-block-3.title") }}</h2>
             <p class="doc-page__block__description" v-html="t('doc-block-3.description')"></p>
-            <button class="next-btn next-btn--warning ripple-effect" @click="displaySpecialErrors" v-ripple>{{ Object.keys(specialErrors).length ? "Hide" : "Display" }} errors</button>
+            <button class="next-btn next-btn--warning ripple-effect" @click="displaySpecialErrors" v-ripple>
+                {{ Object.keys(specialErrors).length ? t("buttons.hide-error") : t("buttons.display-error") }}
+            </button>
             <div class="doc-page__block__block flex justify-content-between align-items-center flex-wrap">
                 <div class="doc-page__block__block__item">
                     <next-select :disabled="false" :error="specialErrors['gender']" :label="$t('modal-3.label.gender')" :values="[$t('modal-3.gender.male'), $t('modal-3.gender.female')]" />

@@ -71,7 +71,9 @@
     "buttons": {
         "button-1": "Nupp 1",
         "button-2": "Nupp 2",
-        "button-3": "Nupp 3"
+        "button-3": "Nupp 3",
+        "display-error": "Kuva viga",
+        "hide-error": "Peida viga"
     },
     "card-1": {
         "title": "Nupp 1 => Modaal 1",
@@ -84,5 +86,30 @@
     "card-3": {
         "title": "Nupp 3 => Modaal 3",
         "description": "See on nupp 3, mis avab uue modaali kõigi sisestustega: tekstisisestus, valimine, failide üleslaadimine, kirjeldus.<br /><i>Uus modaalkujundus</i>"
+    },
+    "doc-block-1": {
+        "title": "Nupud",
+        "description": "Selles projektis tehti 5 nupukujundust ja paljudel neist on hõljutatud animatsioon. Need erinevad fondi stiili, taustavärvide ja toimingute poolest, st pärast klõpsamist. Samuti loodi direktiiv \"ripple\", mis lisab pulsatsiooniefekti klõpsake."
+    },
+    "doc-block-2": {
+        "title": "Sisendid",
+        "description": "Selles projektis tehti 2 sisendkujundust. Igal sisendil on valideerimine ja kui sisend on tühi, siis kuvatakse veasilt. Samuti on realiseeritud tõlked."
+    },
+    "doc-block-3": {
+        "title": "Erilised sisendid",
+        "description": "Selles projektis tehti 2 spetsiaalset sisendit: tekstiala ja valik, millel on ka valideerimine: kui väli on tühi, kuvatakse veasilt. Tõlked on samuti rakendatud."
+    },
+    "doc-block-4": {
+        "title": "Laadi üles sisend",
+        "description": "Projektis teostati sisendi üleslaadimine. Kui üleslaaditavaid faile pole, on ikoon. Kui plokis on mõni üksus, siis ilmub üksus märgiga \"+\" ja sellel klõpsates on võimalik üles laadida mitu üksust. Kui üksuste arv on suurem kui plokki mahub, on võimalus <b>kerida X võrra</b>, et näha kõiki elemente ja neid hallata. Elemendi eemaldamiseks klõpsake sellel ja see eemaldatakse ja ei saada lõplikku päringut.<br /> Kuva omadused: kui laadite pildi üles, näete selle pildi <b>väikest eelvaadet</b>. Failide üleslaadimisel näete <b>laiendit</b> failist ja selle <b>suurusest</b>."
+    },
+    "doc-block-5": {
+        "title": "Modaalide tüüp ja taotlused",
+        "description": "On kahte tüüpi modaale: vaike- ja uue kujundusega. Demomodaalide vaatamiseks minge lehele <b>{linkPage}</b> ja klõpsake vaikevaate ja \"Nupp 2\", et näha uue kujundusega modaali. <br /> <br /> Projektis on realiseeritud ka serveri toomise töötlejad: kuni päringule serverilt vastust ei tule, näeb kasutaja laadurit. Pärast kui päring õnnestub , modaalaken näitab lõplikku modaali. Muidu on probleeme, kasutaja näeb punast veateadet. <br /> <i>Projektis tehti väljamõeldud vead, et näidata, kuidas veateade ilmub. Iga teine ​​päring \"serverile \" on saatuslik.</i>",
+        "link-text": "koduleht"
+    },
+    "doc-block-6": {
+        "title": "Muud",
+        "description": "Projekt kasutab Vue 3 projekti mitmekeelseks rakendamiseks I18n teeki. Tõlked kirjutatakse json-failidesse ja iga keele jaoks on eraldi fail, kuid kõigi failide struktuur on sama. Projektil on <b>3 keelt:</b > Soome, eesti ja inglise keel. <br /><br /> Terve rakendus on mobiiliga kohandatud (näiteks mobiilides on menüü ahendatud \"burgeriks\" ja menüü avaneb vasakult). <br /> Kõik stiilid on kirjutatud native css (SCSS) abil väliseid teeke (nt bootstrap, jquery jne) ei kasutatud. Projekti olekuhaldur: pinia."
     }
 }

@@ -71,7 +71,9 @@
     "buttons": {
         "button-1": "Painike 1",
         "button-2": "Painike 2",
-        "button-3": "Painike 3"
+        "button-3": "Painike 3",
+        "display-error": "Näytön virhe",
+        "hide-error": "Piilota virhe"
     },
     "card-1": {
         "title": "Painike 1 => Modaali 1",
@@ -84,5 +86,43 @@
     "card-3": {
         "title": "Painike 3 => Modaali 3",
         "description": "Tämä on painike 3, joka avaa uuden modaalin kaikilla syötteillä: tekstinsyöttö, valinnat, tiedostojen lataaminen, kuvaus.<br /><i>Uusi modaalimuotoilu</i>"
+    },
+
+    "card-1": {
+        "title": "Button 1 => Modal 1",
+        "description": "This is button 1 that opens test modal with 2 fields: value A and value B<br/><i>Default modal design</i>"
+    },
+    "card-2": {
+        "title": "Button 2 => Modal 2",
+        "description": "This is button 2 that opens test modal with 2 fields: value A and value B.<br /><i>New modal design</i>"
+    },
+    "card-3": {
+        "title": "Button 3 => Modal 3",
+        "description": "This is button 3 that opens new modal with all inputs: text inputs, selects, upload files, description.<br /><i>New modal design</i>"
+    },
+    "doc-block-1": {
+        "title": "Painikkeet",
+        "description": "Tässä projektissa tehtiin 5 painikemallia ja monissa niistä on animaatio hoverissa. Ne eroavat kirjasinten tyylin, taustavärien ja toimintojen eli napsautuksen jälkeisten toimintojen mukaan. Lisäksi luotiin 'ripple'-direktiivi, joka lisää aaltoiluvaikutusta klikkaus."
+    },
+    "doc-block-2": {
+        "title": "Syötteet",
+        "description": "Tässä projektissa tehtiin 2 syöttösuunnittelua. Jokaisella syötteellä on validointi ja jos syöte on tyhjä, tulee virhetunniste. Myös käännökset toteutetaan."
+    },
+    "doc-block-3": {
+        "title": "Erikoistulot",
+        "description": "Tässä projektissa tehtiin 2 erityistä syöttöä: textarea ja select, joissa on myös validointi: jos kenttä on tyhjä, tulee virhetunniste. Myös käännökset toteutetaan."
+    },
+    "doc-block-4": {
+        "title": "Lataa syöttö",
+        "description": "Projektissa toteutui lataussyöte. Jos ladattavia tiedostoja ei ole, on kuvake. Jos lohkossa on joitain kohteita, tulee näkyviin kohta \"+\" ja klikkaa sitä on mahdollista ladata useita kohteita. Jos nimikkeiden määrä on suurempi kuin mahdollista mahtuu lohkoon, voit <b>vierittää X:llä</b> nähdäksesi kaikki elementit ja hallitaksesi niitä. Poista elementti napsauttamalla sitä ja se poistetaan ja ei lähetä lopullista pyyntöä.<br /> Näytön ominaisuudet: jos lataat kuvan, näet tämän kuvan <b>pienen esikatselun</b>. Jos lähetät tiedostoja, näet <b>tunnisteen</b> b> tästä tiedostosta ja sen <b>koosta</b>."
+    },
+    "doc-block-5": {
+        "title": "Modaalityyppi ja pyynnöt",
+        "description": "Modaalia on 2 tyyppiä: oletus ja uusi ulkoasu. Näet esittelymodaalit siirtymällä osoitteeseen <b>{linkPage}</b> ja napsauttamalla \"Button 1\" nähdäksesi oletusnäkymän ja \"Button 2\" nähdäksesi modaalin uudella ulkoasulla. <br /> <br /> Projektissa on myös toteutettu palvelimen haun käsittelijät: kunnes pyyntö ei saa vastausta palvelimelta käyttäjä näkee latausohjelman. Kun pyyntö onnistuu , modaalinen ikkuna näyttää lopullisen modaalin. Muutoin on joitain ongelmia, käyttäjä näkee punaisen virheilmoituksen. <br /> <i>Projektissa tehtiin kuvitteellisia virheitä, joilla havainnollistettiin, kuinka virheilmoitus näkyy. Joka toinen pyyntö \"palvelimelle \" on kohtalokas.</i>",
+        "link-text": "kotisivu"
+    },
+    "doc-block-6": {
+        "title": "Muut",
+        "description": "Projekti käyttää I18n-kirjastoa monikielisen Vue 3 -projektin toteuttamiseen. Käännökset kirjoitetaan json-tiedostoihin ja jokaiselle kielelle on oma tiedosto, mutta kaikkien tiedostojen rakenne on sama. Projektissa on <b>3 kieltä:</b > Suomi, viro ja englanti. <br /><br /> Koko sovellus on mobiilisovitettu (esimerkiksi mobiililaitteilla valikko tiivistyy \"hampurilaiseksi\" ja valikko ponnahtaa ylös vasemmalta). <br /> Kaikki tyylit on kirjoitettu alkuperäisellä css:llä (SCSS), ulkoisia kirjastoja (esim. bootstrap, jquery jne.) ei käytetty. Projektin tilapäällikkö: pinia."
     }
 }
