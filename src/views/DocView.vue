@@ -51,10 +51,14 @@ export default defineComponent({
             <div class="doc-page__block__block flex justify-content-between align-items-center flex-wrap">
                 <div class="doc-page__block__block__item">
                     <main-input :disabled="false" :error="inputErrors['valueA']" :invalid="!!inputErrors['valueA']" label="Value A" modelValue="" placeholder="Value A" />
+                </div>
+                <div class="doc-page__block__block__item">
                     <main-input :disabled="true" :error="inputErrors['valueA']" :invalid="!!inputErrors['valueA']" label="Value A" modelValue="" placeholder="Value A" />
                 </div>
                 <div class="doc-page__block__block__item">
                     <next-input :disabled="false" :error="inputErrors['valueA']" :invalid="!!inputErrors['valueA']" modelValue="" label="Value B" />
+                </div>
+                <div class="doc-page__block__block__item">
                     <next-input :disabled="true" :error="inputErrors['valueA']" :invalid="!!inputErrors['valueA']" modelValue="" label="Value B" />
                 </div>
             </div>
