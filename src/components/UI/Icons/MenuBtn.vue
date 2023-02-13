@@ -4,7 +4,6 @@ export default defineComponent({
     props: {
         show: Boolean,
     },
-    setup: () => {},
 });
 </script>
 

@@ -5,16 +5,12 @@ import NextModal2Steps from "./NextModal2/NextModal2Steps.vue";
 import TestModalSteps from "./TestModal/TestModalSteps.vue";
 import { useI18n } from "vue-i18n";
 import Card from "./UI/Cards/Card.vue";
-import { htmlFromStr } from "@/services/htmlFromStr";
 export default defineComponent({
     data: () => ({
         showTest1: false,
         showTest2: false,
         showNext: false,
     }),
-    methods: {
-        htmlFromStr,
-    },
     setup() {
         const { t } = useI18n({ useScope: "global" });
         return { t };
