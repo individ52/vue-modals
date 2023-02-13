@@ -49,22 +49,35 @@
 
 .sub-menu {
     &-enter {
-        opacity: 0;
-        transform: translateX(100%);
         &-active {
-            transition: all 0.5s ease-out;
+            transition: all 0.5s;
+            .sub-menu__content {
+                transition: all 0.5s;
+                transition-delay: 0.1s;
+            }
         }
         &-from {
-            opacity: 0;
             transform: translateX(100%);
-            transition: all 0.5s ease-out;
+            opacity: 0;
+            .sub-menu__content {
+                transform: translateX(100%);
+            }
         }
     }
     &-leave {
         &-active {
-            opacity: 0;
+            transition: all 0.5s;
+            transition-delay: 0.1s;
+            .sub-menu__content {
+                transition: all 0.5s;
+            }
+        }
+        &-to {
             transform: translateX(100%);
-            transition: all 0.5s ease-out;
+            opacity: 0;
+            .sub-menu__content {
+                transform: translateX(100%);
+            }
         }
     }
 }
