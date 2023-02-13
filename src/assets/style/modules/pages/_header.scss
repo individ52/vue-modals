@@ -9,13 +9,16 @@
         height: 100%;
         padding: 0 40px;
         position: relative;
+        gap: 2em;
         @media screen and (max-width: 992px) {
-            padding: 0 35px 0 5px;
+            padding: 0 5px;
         }
     }
     &__logo {
         a {
-            display: block;
+            max-width: 220px;
+            display: flex;
+            align-items: center;
             padding: auto 0;
             img {
                 @media screen and (max-width: 992px) {
@@ -23,19 +26,20 @@
                 }
             }
         }
-        @media screen and (max-width: 992px) {
-            margin-right: 25%;
-        }
     }
     &__body {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1em;
         &__nav {
             @media screen and (max-width: 992px) {
                 display: none;
             }
             &__item {
+                margin: 0 8px;
                 color: white;
                 font: $nwy-font-p;
-                margin-right: 30px;
                 transition: 0.5s all;
                 &--active {
                     color: $color-seconary;
@@ -56,13 +60,24 @@
             font: $libs-font-p;
             color: #000;
             cursor: pointer;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            text-indent: 1px;
+            text-overflow: "";
+
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15px;
+            text-align: center;
+            color: #212b36;
+            @media screen and (max-width: 992px) {
+                padding: 8px;
+                background: #ffffff;
+                border-radius: 8px;
+            }
         }
     }
     &__burger {
-        position: absolute;
-        // background-color: $color-seconary;
-        right: 0;
-        top: 0;
         height: 100%;
         aspect-ratio: 1/1;
         display: flex;

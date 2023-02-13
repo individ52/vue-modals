@@ -1,7 +1,10 @@
 $coef: 2;
+$span-height: 6px;
+$btn-height: 50px;
+$span-space: 10px;
 .menu-btn {
     width: 60px / $coef;
-    height: 27px / $coef;
+    height: $btn-height / $coef;
     position: relative;
     -webkit-transform: rotate(0deg);
     -moz-transform: rotate(0deg);
@@ -16,9 +19,9 @@ $coef: 2;
     span {
         display: block;
         position: absolute;
-        height: 6px / $coef;
+        height: $span-height / $coef;
         width: 100%;
-        background: $color-seconary;
+        background: $color-libs-warning;
         border-radius: 9px / $coef;
         opacity: 1;
         left: 0;
@@ -31,20 +34,20 @@ $coef: 2;
         -o-transition: 0.25s ease-in-out;
         transition: 0.25s ease-in-out;
         &:nth-child(1) {
-            top: 0px;
+            top: $span-space / $coef;
         }
 
         &:nth-child(2) {
-            top: 12px / $coef;
+            top: ($btn-height / 2 - $span-height / 2) / $coef;
         }
 
         &:nth-child(3) {
-            top: 24px / $coef;
+            top: ($btn-height - $span-height - $span-space) / $coef;
         }
     }
     &-open {
         span:nth-child(1) {
-            top: 18px / $coef;
+            top: 22px / $coef;
             -webkit-transform: rotate(135deg);
             -moz-transform: rotate(135deg);
             -o-transform: rotate(135deg);
@@ -57,7 +60,7 @@ $coef: 2;
         }
 
         span:nth-child(3) {
-            top: 18px / $coef;
+            top: 22px / $coef;
             -webkit-transform: rotate(-135deg);
             -moz-transform: rotate(-135deg);
             -o-transform: rotate(-135deg);
