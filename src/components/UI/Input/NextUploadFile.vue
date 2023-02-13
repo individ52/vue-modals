@@ -21,6 +21,7 @@ export default defineComponent({
         modelValue: Array,
         label: String,
         error: Boolean,
+        disabled: Boolean,
     },
     data: () => ({
         items: [] as FileItem[],
@@ -28,9 +29,11 @@ export default defineComponent({
     }),
     methods: {
         removeItem(item: any) {
-            const newValue = this.modelValue?.filter((v: any) => v.name != item.name);
-            this.items = this.items.filter((v) => v.name != item.name);
-            this.$emit("update:modelValue", newValue);
+            if (!this.disabled) {
+                const newValue = this.modelValue?.filter((v: any) => v.name != item.name);
+                this.items = this.items.filter((v) => v.name != item.name);
+                this.$emit("update:modelValue", newValue);
+            }
         },
         uploaFile(e: any) {
             const file: File = e.target.files[0];
@@ -93,7 +96,7 @@ export default defineComponent({
                 'next-upload-file__content--error': error,
             }"
         >
-            <input type="file" @change="uploaFile" />
+            <input type="file" @change="uploaFile" :disabled="disabled" />
             <div class="next-upload-file__items" v-if="modelValue?.length">
                 <div
                     v-for="item in items"

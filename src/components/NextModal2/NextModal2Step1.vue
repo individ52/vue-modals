@@ -93,18 +93,18 @@ export default defineComponent({
         <template v-slot:body>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="next-form">
-                <next-input :disabled="false" :error="errors['firstname']" :label="$t('modal-3.label.firstname')" v-model="nextFormData.firstname" />
-                <next-input :disabled="false" :error="errors['lastname']" :label="$t('modal-3.label.lastname')" v-model="nextFormData.lastname" />
+                <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['firstname']" :label="$t('modal-3.label.firstname')" v-model="nextFormData.firstname" />
+                <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['lastname']" :label="$t('modal-3.label.lastname')" v-model="nextFormData.lastname" />
                 <next-select
-                    :disabled="false"
+                    :disabled="status == ResponseStatus.LOADING"
                     :error="errors['gender']"
                     :label="$t('modal-3.label.gender')"
                     v-model="nextFormData.gender"
                     :values="[$t('modal-3.gender.male'), $t('modal-3.gender.female')]"
                 />
-                <next-input :disabled="false" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
-                <next-upload-file :disabled="false" :error="errors['files']" :label="$t('modal-3.label.files')" v-model="nextFormData.files" />
-                <next-textarea :disabled="false" :error="errors['description']" :label="$t('modal-3.label.description')" v-model="nextFormData.description" />
+                <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['email']" label="E-mail" v-model="nextFormData.email" />
+                <next-upload-file :disabled="status == ResponseStatus.LOADING" :error="!!errors['files']" :label="$t('modal-3.label.files')" v-model="nextFormData.files" />
+                <next-textarea :disabled="status == ResponseStatus.LOADING" :error="errors['description']" :label="$t('modal-3.label.description')" v-model="nextFormData.description" />
             </form>
         </template>
         <template v-slot:footer_button>

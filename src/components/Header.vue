@@ -3,7 +3,6 @@ import { defineComponent, reactive, ref } from "vue";
 import MenuBtn from "./UI/Icons/MenuBtn.vue";
 import { useI18n } from "vue-i18n";
 import { AppLinks } from "@/router";
-import { react } from "@babel/types";
 export default defineComponent({
     components: { MenuBtn },
     data: () => ({

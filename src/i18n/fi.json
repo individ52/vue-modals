@@ -54,6 +54,7 @@
         "errors": {
             "firstname": "Etunimi vaaditaan",
             "lastname": "Sukunimi vaaditaan",
+            "files": "Tiedostosi vaaditaan",
             "gender": "Sukupuoli vaaditaan",
             "email": "E-mail vaaditaan",
             "description": "Kuvaus  vaaditaan"
@@ -71,5 +72,17 @@
         "button-1": "Painike 1",
         "button-2": "Painike 2",
         "button-3": "Painike 3"
+    },
+    "card-1": {
+        "title": "Painike 1 => Modaali 1",
+        "description": "Tämä on painike 1, joka avaa testimodaalin kahdella kentällä: arvo A ja arvo B<br/><i>Modaalin oletussuunnittelu</i>"
+    },
+    "card-2": {
+        "title": "Painike 2 => Modaali 2",
+        "description": "Tämä on painike 2, joka avaa testimodaalin kahdella kentällä: arvo A ja arvo B.<br /><i>Uusi modaalisuunnittelu</i>"
+    },
+    "card-3": {
+        "title": "Painike 3 => Modaali 3",
+        "description": "Tämä on painike 3, joka avaa uuden modaalin kaikilla syötteillä: tekstinsyöttö, valinnat, tiedostojen lataaminen, kuvaus.<br /><i>Uusi modaalimuotoilu</i>"
     }
 }

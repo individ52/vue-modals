@@ -5,12 +5,16 @@ import NextModal2Steps from "./NextModal2/NextModal2Steps.vue";
 import TestModalSteps from "./TestModal/TestModalSteps.vue";
 import { useI18n } from "vue-i18n";
 import Card from "./UI/Cards/Card.vue";
+import { htmlFromStr } from "@/services/htmlFromStr";
 export default defineComponent({
     data: () => ({
         showTest1: false,
         showTest2: false,
         showNext: false,
     }),
+    methods: {
+        htmlFromStr,
+    },
     setup() {
         const { t } = useI18n({ useScope: "global" });
         return { t };
@@ -24,11 +28,8 @@ export default defineComponent({
         <div class="page-buttons__wrap flex justify-content-around flex-wrap">
             <div class="page-buttons__item">
                 <Card>
-                    <template v-slot:title>Button 2 => Modal 2</template>
-                    <template v-slot:description
-                        >This is button 2 that opens test modal with 2 fields: valua A and value B.<br />
-                        <i>New modal design</i></template
-                    >
+                    <template v-slot:title>{{ $t("card-2.title") }}</template>
+                    <template v-slot:description><p v-html="$t('card-2.description')"></p></template>
                     <template v-slot:buttons>
                         <button class="next-btn next-btn--primary" @click="showTest2 = !showTest2">{{ $t("buttons.button-2") }}</button>
                     </template>
@@ -36,11 +37,8 @@ export default defineComponent({
             </div>
             <div class="page-buttons__item">
                 <Card>
-                    <template v-slot:title>Button 1 => Modal 1</template>
-                    <template v-slot:description
-                        >This is button 1 that opens test modal with 2 fields: valua A and value B<br />
-                        <i>Default modal design</i></template
-                    >
+                    <template v-slot:title>{{ $t("card-1.title") }}</template>
+                    <template v-slot:description><p v-html="$t('card-1.description')"></p></template>
                     <template v-slot:buttons
                         ><button class="btn btn--primary" @click="showTest1 = !showTest1">{{ $t("buttons.button-1") }}</button></template
                     >
@@ -48,11 +46,8 @@ export default defineComponent({
             </div>
             <div class="page-buttons__item">
                 <Card>
-                    <template v-slot:title>Button 3 => Modal 3</template>
-                    <template v-slot:description
-                        >This is button 3 that opens new modal with all inputs: text inputs, selects, upload files, description.<br />
-                        <i>New modal design</i></template
-                    >
+                    <template v-slot:title>{{ $t("card-3.title") }}</template>
+                    <template v-slot:description><p v-html="$t('card-3.description')"></p></template>
                     <template v-slot:buttons>
                         <button class="next-btn next-btn--primary" @click="showNext = !showNext">{{ $t("buttons.button-3") }}</button>
                     </template>

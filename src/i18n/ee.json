@@ -55,6 +55,7 @@
             "firstname": "Eesnimi on nõutav",
             "perenimi": "Perekonnanimi on nõutav",
             "gender": "Sugu on nõutav",
+            "files": "Failid on nõutav",
             "email": "E-post on nõutav",
             "description": "Kirjeldus on nõutav"
         },
@@ -71,5 +72,17 @@
         "button-1": "Nupp 1",
         "button-2": "Nupp 2",
         "button-3": "Nupp 3"
+    },
+    "card-1": {
+        "title": "Nupp 1 => Modaal 1",
+        "description": "See on nupp 1, mis avab testmodaali kahe väljaga: väärtus A ja väärtus B<br/><i>Modaalse vaikekujundus</i>"
+    },
+    "card-2": {
+        "title": "Nupp 2 => Modaal 2",
+        "description": "See on nupp 2, mis avab testmodaali kahe väljaga: väärtus A ja väärtus B.<br /><i>Uus modaalkujundus</i>"
+    },
+    "card-3": {
+        "title": "Nupp 3 => Modaal 3",
+        "description": "See on nupp 3, mis avab uue modaali kõigi sisestustega: tekstisisestus, valimine, failide üleslaadimine, kirjeldus.<br /><i>Uus modaalkujundus</i>"
     }
 }

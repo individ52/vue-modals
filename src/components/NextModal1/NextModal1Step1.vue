@@ -54,7 +54,7 @@ export default defineComponent({
             valueB: "",
         });
         const { message, makeRequest, status, close } = useFetch(async function () {
-            return await TestAPI.postTest({} as TestForm);
+            return await TestAPI.postTest(nextFormData.value);
         });
 
         return {
@@ -75,8 +75,8 @@ export default defineComponent({
         <template v-slot:body>
             <div class="flex justify-content-center" v-if="true"><server-response :status="status" :message="message" @close="close" /></div>
             <form @submit="submitForm" id="next-form">
-                <next-input :disabled="false" :error="errors['valueA']" :label="$t('modal-2.label.a')" v-model="nextFormData.valueA" />
-                <next-input :disabled="false" :error="errors['valueB']" :label="$t('modal-2.label.b')" v-model="nextFormData.valueB" />
+                <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['valueA']" :label="$t('modal-2.label.a')" v-model="nextFormData.valueA" />
+                <next-input :disabled="status == ResponseStatus.LOADING" :error="errors['valueB']" :label="$t('modal-2.label.b')" v-model="nextFormData.valueB" />
             </form>
         </template>
         <template v-slot:footer_button>
