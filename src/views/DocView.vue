@@ -132,21 +132,7 @@ export default defineComponent({
                 </div>
             </div>
         </div>
-        <div class="doc-page__block">
-            <h2 class="doc-page__block__title">Upload input</h2>
-            <p class="doc-page__block__description">
-                In project was realized uploading input. If there are not any files to upload, there is icon. If in block are some items, item with "+" mark appears and click on it there is possible
-                to upload multiple items. If Items count is greater that is possible to fit in block, there is opportunity to <b>scroll by X</b> to see all elements and manage them. To remove element
-                click on it and it will removed and will not send in final request.<br />
-                Display characteristics: if you upload picture, you can see the <b>small preview</b> of this picture. If you upload files, you will see <b>the extension</b> of this file and its
-                <b>size</b>.
-            </p>
-            <div class="doc-page__block__block flex justify-content-between align-items-center flex-wrap">
-                <div class="doc-page__block__block__uploader">
-                    <next-upload-file :label="$t('modal-3.label.files')" :error="false" :disabled="false" v-model="files" />
-                </div>
-            </div>
-        </div>
+
         <div class="doc-page__block">
             <h2 class="doc-page__block__title">Modals type and requests</h2>
             <p class="doc-page__block__description">
@@ -175,7 +161,8 @@ export default defineComponent({
             <p class="doc-page__block__description">
                 Project use I18n library to implement multilanguage into Vue 3 project. Translations is wirtten in json files and for each lanugage there are separate file but structure of all files
                 is same. Project has <b>3 languages:</b> Finland, Estonian and English. <br /><br />
-                Whole app is mobile addapted (for example on mobiles menu is collapsed into "burger" and menu pops up from left).
+                Whole app is mobile addapted (for example on mobiles menu is collapsed into "burger" and menu pops up from left). <br />
+                All stylize were written by native css (SCSS), external libraries (for instancce bootstrap, jquery, etc) were not used. Project state manager: pinia.
             </p>
             <div class="doc-page__block__block flex justify-content-between align-items-center flex-wrap">
                 <lang-select class="header__body__lang" />

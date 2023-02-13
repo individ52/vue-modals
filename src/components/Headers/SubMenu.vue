@@ -21,7 +21,7 @@ export default defineComponent({
         return { global };
     },
 });
-</script>
+</script>       
 
 <template>
     <transition name="sub-menu">
