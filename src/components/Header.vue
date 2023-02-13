@@ -57,7 +57,7 @@ export default defineComponent({
                     <nav class="header__body__nav">
                         <router-link :to="AppLinks.HOME" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("home-title") }}</router-link>
                         <router-link :to="AppLinks.AUTHOR" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("author-title") }}</router-link>
-                        <router-link :to="AppLinks.AUTHOR" class="header__body__nav__item" active-class="header__body__nav__item--active">{{ $t("author-title") }}</router-link>
+                        <router-link :to="AppLinks.DOC" class="header__body__nav__item" active-class="header__body__nav__item--active">Documentation</router-link>
                     </nav>
                     <select class="header__body__lang" @change="switchLang" v-model="lang">
                         <option value="ee">EE</option>
@@ -83,6 +83,9 @@ export default defineComponent({
                             <router-link :to="AppLinks.AUTHOR" @click="hideSubMenu" class="header__sub-menu__content__nav__item" active-class="header__sub-menu__content__nav__item--active">{{
                                 $t("author-title")
                             }}</router-link>
+                            <router-link :to="AppLinks.DOC" @click="hideSubMenu" class="header__sub-menu__content__nav__item" active-class="header__sub-menu__content__nav__item--active">
+                                Documentation
+                            </router-link>
                         </nav>
                     </div>
                 </div>

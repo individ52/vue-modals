@@ -12,8 +12,9 @@
 @import "./layout/inputs/upload-file";
 
 // Modules
-@import "./modules/pages/header";
 @import "./modules/pages/page-buttons";
+@import "./modules/pages/page-doc";
+@import "./modules/pages/header";
 @import "./modules/components/modal";
 @import "./modules/buttons/cross-btn";
 @import "./modules/buttons/menu-btn";
@@ -23,3 +24,4 @@
 // Partials
 @import "./partials/animations";
 @import "./partials/modal-animation";
+@import "./partials/ripple";

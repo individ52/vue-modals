@@ -1,0 +1,25 @@
+.parent-ripple-effect {
+    position: relative;
+    overflow: hidden;
+}
+.span-ripple-effect {
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 0.5s linear infinite;
+    z-index: 100;
+}
+@keyframes animate {
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 0.5;
+    }
+    100% {
+        width: 500px;
+        height: 500px;
+        opacity: 0;
+    }
+}

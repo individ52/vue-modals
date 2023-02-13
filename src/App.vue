@@ -3,7 +3,7 @@ import { defineComponent } from "@vue/runtime-dom";
 import Header from "./components/Header.vue";
 
 export default defineComponent({
-    components: { Header },
+     components: { Header },
 });
 </script>
 
