@@ -71,7 +71,9 @@
     "buttons": {
         "button-1": "Button 1",
         "button-2": "Button 2",
-        "button-3": "Button 3"
+        "button-3": "Button 3",
+        "display-error": "Display Error",
+        "hide-error": "hide Error"
     },
 
     "card-1": {
@@ -85,5 +87,30 @@
     "card-3": {
         "title": "Button 3 => Modal 3",
         "description": "This is button 3 that opens new modal with all inputs: text inputs, selects, upload files, description.<br /><i>New modal design</i>"
+    },
+    "doc-block-1": {
+        "title": "Buttons",
+        "description": "In this project was made 5 button designs and many of them have animation on hover. They different by font stylistic, background colors and actions, that is after click. Also was created directive 'ripple' that add ripple effect on click."
+    },
+    "doc-block-2": {
+        "title": "Inputs",
+        "description": "In this project was made 2 input designs. Each input has validation and if input is empty there will appear error label. Translations are also implemented."
+    },
+    "doc-block-3": {
+        "title": "Special inputs",
+        "description": "In this project was made 2 special inputs: textarea and select that also have validation: if field is empty there will appear error label. Translations are also implemented."
+    },
+    "doc-block-4": {
+        "title": "Upload input",
+        "description": "In project was realized uploading input. If there are not any files to upload, there is icon. If in block are some items, item with \"+\" mark appears and click on it there is possible to upload multiple items. If Items count is greater that is possible to fit in block, there is opportunity to <b>scroll by X</b> to see all elements and manage them. To remove element click on it and it will removed and will not send in final request.<br /> Display characteristics: if you upload picture, you can see the <b>small preview</b> of this picture. If you upload files, you will see <b>the extension</b> of this file and its <b>size</b>."
+    },
+    "doc-block-5": {
+        "title": "Modals type and requests",
+        "description": "There are 2 types of modal: default and with new design. To see the demo modals, go to <b>{linkPage}</b> and click on \"Button 1\" to see default view and \"Button 2\" to see modal with new design. <br /> <br /> In project is also realized handlers of server fetch: until request will not received a response from server user will see loader. After if request is succeed, modal window will show final modal. Else there are some issues, user will see the red error alert. <br /> <i>In project was made fictional errors creation to demonstrate how error alert appears. Each second request to \"server\" is fatal.</i>",
+        "link-text": "home page"
+    },
+    "doc-block-6": {
+        "title": "Others",
+        "description": "Project use I18n library to implement multilanguage into Vue 3 project. Translations is wirtten in json files and for each lanugage there are separate file but structure of all files is same. Project has <b>3 languages:</b> Finland, Estonian and English. <br /><br /> Whole app is mobile addapted (for example on mobiles menu is collapsed into \"burger\" and menu pops up from left). <br /> All stylize were written by native css (SCSS), external libraries (for instancce bootstrap, jquery, etc) were not used. Project state manager: pinia."
     }
 }
