@@ -1,0 +1,22 @@
+.author-page {
+    width: 100%;
+    padding: 40px 0;
+    &__picture {
+        width: 40%;
+        aspect-ratio: 1/1;
+        border-radius: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        margin: 0 auto;
+        @media screen and (max-width: 500px) {
+            width: 90%;
+        }
+    }
+    &__title {
+        text-align: center;
+    }
+    &__subtitle {
+        text-align: center;
+    }
+}

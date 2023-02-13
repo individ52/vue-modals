@@ -21,14 +21,14 @@ export default defineComponent({
         return { global };
     },
 });
-</script>       
+</script>
 
 <template>
     <transition name="sub-menu">
         <div class="header__sub-menu" v-if="global.isSubMenu" @click.stop="clickOnMask">
             <div class="header__sub-menu__content sub-menu__content" v-if="global.isSubMenu">
                 <div class="header__sub-menu__content__header">
-                    <div class="header__sub-menu__content__header__image"><img src="/assets/sub-menu_logo.png" alt="logo" /></div>
+                    <div class="header__sub-menu__content__header__image"><img src="/assets/pictures/sub-menu_logo.png" alt="logo" /></div>
                     <div class="header__sub-menu__content__header__title">Menu</div>
                 </div>
                 <nav class="header__sub-menu__content__nav">

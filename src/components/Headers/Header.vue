@@ -28,7 +28,7 @@ export default defineComponent({
             <div class="header__wrap flex align-items-center justify-content-between">
                 <div class="header__logo">
                     <router-link :to="AppLinks.HOME">
-                        <img src="/assets/Group_31391.svg" alt="logo" />
+                        <img src="/assets/pictures/Group_31391.svg" alt="logo" />
                     </router-link>
                 </div>
                 <div class="header__body">
