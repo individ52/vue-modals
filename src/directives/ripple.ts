@@ -1,6 +1,5 @@
 export default {
     mounted: (el: any) => {
-        console.log("el", el);
         el.classList.add("parent-ripple-effect");
         el.addEventListener("click", function (e: any) {
             let x = e.clientX - e.target.offsetLeft;

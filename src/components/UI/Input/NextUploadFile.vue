@@ -14,6 +14,7 @@ interface FileItem {
     url: string;
     type: FileTime;
     size: number;
+    ext: string;
 }
 
 export default defineComponent({
@@ -37,7 +38,6 @@ export default defineComponent({
         },
         uploaFile(e: any) {
             const files: File[] = e.target.files;
-            console.log(files);
             const newValue = [...(this.modelValue ?? []), ...files];
             this.$emit("update:modelValue", newValue);
 
@@ -48,11 +48,14 @@ export default defineComponent({
             if (file.type.includes("image")) {
                 var reader = new FileReader();
                 reader.onload = () => {
+                    const fileTypeParts = file.type.split("/");
+                    const ext = fileTypeParts[fileTypeParts.length - 1];
                     this.items.push({
                         name: file.name as string,
                         url: reader.result as string,
                         type: FileTime.IMG,
                         size: file.size / 1024,
+                        ext: ext,
                     });
                 };
                 reader.readAsDataURL(file);
@@ -62,9 +65,10 @@ export default defineComponent({
                 const size = Math.round(file.size / 1024);
                 this.items.push({
                     name: file.name,
-                    url: ext.toUpperCase() as string,
+                    url: "",
                     type: FileTime.DOC,
                     size: size,
+                    ext: ext.toUpperCase() as string,
                 });
             }
         },
@@ -112,12 +116,12 @@ export default defineComponent({
                             'next-upload-file__item--file': FileTime.DOC == item.type,
                         }"
                         :style="{
-                            backgroundImage: `url(${item.url})`,
+                            backgroundImage: item.url ? `url(${item.url})` : 'none',
                         }"
                         @click="removeItem(item)"
                     >
                         <next-cross-btn />
-                        <p v-if="FileTime.DOC == item.type">{{ item.url }}<br />({{ item.size }}KB)</p>
+                        <p v-if="FileTime.DOC == item.type">{{ item.ext }}<br />({{ item.size }}KB)</p>
                     </div>
                 </div>
                 <div key="+" class="next-upload-file__item__wrap">
