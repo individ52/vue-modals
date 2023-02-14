@@ -10,7 +10,6 @@ import directives from "@/directives";
 import { createPinia } from "pinia";
 
 const messages = Object.assign(languages);
-
 const i18n = createI18n({
     legacy: false,
     locale: defaultLocale,
